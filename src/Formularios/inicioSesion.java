@@ -5,12 +5,14 @@
 package Formularios;
 
 import clases.conectarBase;
+import com.jtattoo.plaf.hifi.HiFiLookAndFeel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -295,11 +297,15 @@ public class inicioSesion extends javax.swing.JFrame {
             public void run() {
               
                 try {
-                    //UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel.");
-                    //SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemocSkin");
+                    
+                    /*UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
+                    //SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MangoSkin");
+                    SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
+                    Código para Look And Feel para Substance
+                    */
                     UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
                     //UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
-                    
+                    //look and feel jtatto hifi es un tema oscuro
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InstantiationException ex) {
