@@ -200,7 +200,7 @@ public class inicioSesion extends javax.swing.JFrame {
            comando.setString(1,txt_correo.getText());//debido a que el nombre del uusario lo obtiene en la ejecución es un parámetro  por lo que no es necesario cambiar al número 2
            ResultSet registro=comando.executeQuery();
            if(registro.next()){
-               if(registro.getString(8).matches(psw_contraseña.getText())){//el dos hace referencia a la segunda columna del registro de la base de datos
+               if(registro.getString(8).matches(String.valueOf(psw_contraseña.getPassword()))){//el dos hace referencia a la segunda columna del registro de la base de datos
                    JOptionPane.showMessageDialog(rootPane,"Bienvendid@ "+registro.getString(4));
                    principal p=new principal();
                    p.setVisible(true);
