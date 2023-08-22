@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 //Librerias para el correo
-//<editor-fold defaultstate="collapsed" desc="Librerias para envio de correo">
 /*import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
