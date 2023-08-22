@@ -58,6 +58,7 @@ public class principal extends javax.swing.JFrame {
         mni_manual = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mni_informacion = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -253,6 +254,9 @@ public class principal extends javax.swing.JFrame {
 
         mnubr_menu.add(mnu_ayuda);
 
+        jMenu1.setText("Temas");
+        mnubr_menu.add(jMenu1);
+
         setJMenuBar(mnubr_menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -437,6 +441,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_generarAlumnos;
     private javax.swing.JButton btn_mostrarGrupo;
     private javax.swing.JDesktopPane dsk_ventanas;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;

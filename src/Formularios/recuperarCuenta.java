@@ -12,7 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 //Librerias para el correo
-import java.util.Properties;
+//<editor-fold defaultstate="collapsed" desc="Librerias para envio de correo">
+/*import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Message;
@@ -22,12 +23,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.*;
-
-//LIbrerias para ejecución de programa python
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.mail.*;*/
 /**
  *
  * @author Emmanuelito18
@@ -145,7 +141,7 @@ void consultarCorreos(){
       if(resultado.equalsIgnoreCase(correo)){
           // El correo ingresado por el usuario coincide con uno en la base de datos
            JOptionPane.showMessageDialog(this,"El correo "+resultado+" ha sido encontrado en la base de datos");
-            EjecutarResendApiPython(resultado,pas);
+            enviarCorreo();
       }
       else{
           JOptionPane.showMessageDialog(this,"No se ha encontrado el correo especificado, por favor confrme y vuela a intentar");
@@ -174,31 +170,9 @@ void consultarCorreos(){
     }//GEN-LAST:event_btn_enviarActionPerformed
     
     //Eliminar código
-    void EjecutarResendApiPython(String resultado,String pas){
-        String pythonScriptPath="";//Se reemplaza la ruta del script de Python
-        String destinatario=resultado;//Resultado es el correo buscado
-        String password=pas;//pas es la contraseña
-        
-        try{
-            //Construtir el comando para ejecutar el script de Python con los parametros es
-            String comando="python "+pythonScriptPath+" "+destinatario+" "+password;
-            
-            //Ejecutar el comando y obtener el proceso resultante
-            Process proceso=Runtime.getRuntime().exec(comando);//exec está deprecado
-            
-            //Leer la salida del poceso
-            BufferedReader reader=new BufferedReader(new InputStreamReader(proceso.getInputStream()));
-            String linea;
-            while((linea=reader.readLine())!=null){
-                System.out.println(linea);
-            }
-            
-            // Esperar a que el proceso termine
-            int exitCode=proceso.waitFor();
-            System.out.println("El proceso de Python ha terminado con código de salida "+exitCode);
-        }catch(IOException|InterruptedException e){
-            e.printStackTrace();
-        }
+    void enviarCorreo(){
+        //Aquí se pondrá el código para enviar correos electrónicos
+        JOptionPane.showMessageDialog(this,"Esta característica aún no está disponible","Oops,", HEIGHT);
     }
     /**
      * @param args the command line arguments
