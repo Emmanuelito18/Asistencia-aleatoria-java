@@ -305,6 +305,7 @@ public class inicioSesion extends javax.swing.JFrame {
                     */
                     UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
                     //UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
+                    //UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
                     //look and feel jtatto hifi es un tema oscuro
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);

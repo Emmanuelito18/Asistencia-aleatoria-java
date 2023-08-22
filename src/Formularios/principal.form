@@ -33,7 +33,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_mostrarGrupoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="Separador1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_generarAlumnos">
               <Properties>
@@ -43,7 +43,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_generarAlumnosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator4">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="Separador2">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_salir">
               <Properties>
@@ -76,7 +76,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_inglesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="Separador3">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_frances">
               <Properties>
@@ -109,7 +109,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_manualActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="Separador4">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_informacion">
               <Properties>
@@ -125,6 +125,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Temas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mni_macAntiguo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mac antiguo"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mni_macClaro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mac claro"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mni_macOscuro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mac oscuro"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mni_mango">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mago"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mni_nemo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nemo"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
