@@ -481,6 +481,10 @@ void consultarAlumnos(){
 
     private void btn_generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generarActionPerformed
         // TODO add your handling code here:
+        if(cmb_grupos.getSelectedIndex()==0||cmb_grupos.getSelectedIndex()==-1){
+            //Si se ha seleccionado el primer bojeto o no se ha seleccionado ninguno
+         JOptionPane.showMessageDialog(this,"No se ha seleccionado ningún grupo", "Atención mamahuevo", HEIGHT);
+        }else{//si hay algún objeto seleccionado
         //Código que elije 15 numeros al azar
         int[] numerosDeLista= new int[31];
         
@@ -524,7 +528,7 @@ void consultarAlumnos(){
         turnoEntero=1;
     }
     consultarAlumnos2();
-    
+        }
     }//GEN-LAST:event_btn_generarActionPerformed
 
     private void cmb_gruposItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmb_gruposItemStateChanged
