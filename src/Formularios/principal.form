@@ -130,26 +130,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mac antiguo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_macAntiguoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_macClaro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mac claro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_macClaroActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_macOscuro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mac oscuro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_macOscuroActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_mango">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mago"/>
+                <Property name="text" type="java.lang.String" value="Mango"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_mangoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mni_nemo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nemo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mni_nemoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
