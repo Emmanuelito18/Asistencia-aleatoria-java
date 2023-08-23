@@ -4,13 +4,7 @@
  */
 package Formularios;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import org.jvnet.substance.SubstanceLookAndFeel;
 
 /**
  *
@@ -268,43 +262,18 @@ public class principal extends javax.swing.JFrame {
         jMenu1.setText("Temas");
 
         mni_macAntiguo.setText("Mac antiguo");
-        mni_macAntiguo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mni_macAntiguoActionPerformed(evt);
-            }
-        });
         jMenu1.add(mni_macAntiguo);
 
         mni_macClaro.setText("Mac claro");
-        mni_macClaro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mni_macClaroActionPerformed(evt);
-            }
-        });
         jMenu1.add(mni_macClaro);
 
         mni_macOscuro.setText("Mac oscuro");
-        mni_macOscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mni_macOscuroActionPerformed(evt);
-            }
-        });
         jMenu1.add(mni_macOscuro);
 
-        mni_mango.setText("Mango");
-        mni_mango.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mni_mangoActionPerformed(evt);
-            }
-        });
+        mni_mango.setText("Mago");
         jMenu1.add(mni_mango);
 
         mni_nemo.setText("Nemo");
-        mni_nemo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mni_nemoActionPerformed(evt);
-            }
-        });
         jMenu1.add(mni_nemo);
 
         mnubr_menu.add(jMenu1);
@@ -424,88 +393,6 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         fCaracteristica();
     }//GEN-LAST:event_mni_manualActionPerformed
-
-    private void mni_macAntiguoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macAntiguoActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
-            SwingUtilities.updateComponentTreeUI(this);
-            //Actualiza la apariencia de lso componentes del JFrame
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_mni_macAntiguoActionPerformed
-
-    private void mni_macClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macClaroActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_mni_macClaroActionPerformed
-
-    private void mni_macOscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macOscuroActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_mni_macOscuroActionPerformed
-
-    private void mni_mangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_mangoActionPerformed
-        try {
-            UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
-            SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MangoSkin");
-            //Código para Look And Feel para Substance
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-        
-    }//GEN-LAST:event_mni_mangoActionPerformed
-
-    private void mni_nemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_nemoActionPerformed
-        try {
-            UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
-            SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_mni_nemoActionPerformed
 
     /**
      * @param args the command line arguments
