@@ -304,7 +304,7 @@ public class inicioSesion extends javax.swing.JFrame {
                     //Esta propiedad cambia el estilo del layout de la barra de titulo de la ventana
                     props.put("macStyleWindowDecoration", "on");
                     //Esta propiedad cmabia el texto en los menus desplegables
-                    props.put("logoString", "Asistencia alaeatoria");
+                    props.put("logoString", "Asistencia aleatoria");
                     //Establece el tema a la que le establece la propiedad
                     com.jtattoo.plaf.mcwin.McWinLookAndFeel.setCurrentTheme(props);
                     // Select the Look and Feel
