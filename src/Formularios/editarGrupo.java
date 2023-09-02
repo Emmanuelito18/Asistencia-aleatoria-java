@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;*/
+import java.util.ArrayList;//libreria para arreglo dinámico
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -30,7 +31,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
     ResultSet rs=null;
     PreparedStatement ps=null;
     Statement st=null;
-    int turnos[]=new int[5];
+    ArrayList<Integer> turnos = new ArrayList<Integer>();//Arreglo dinámico donde se guarda el valor del turno
     int posCMB=0;
     int fila=0;
     int id=0;
@@ -90,7 +91,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
             while(rs.next()){
                 i++;
                 grup=rs.getString(1);
-                turnos[i]=rs.getInt(2);
+                turnos.add(rs.getInt(2)); //código para añadir información al arreglo dinámico se guarda el valor del turno
                 cmb_grupos.addItem(grup);
                 cmb_grupos.requestFocus();
             }
@@ -464,7 +465,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
                 posCMB=cmb_grupos.getSelectedIndex();
                 if(posCMB>0){
                     grupoElegido=cmb_grupos.getSelectedItem().toString();
-                    if(turnos[posCMB]==0){
+                    if(turnos.get(posCMB-1)==0){//si el valor de turnos en la posición del indice
                         lbl_turnoEditable.setText("Matutino");
                         lbl_turnoEditable.setVisible(true);
                     }
@@ -527,7 +528,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         String []info=new String[9];
         info[0]=identifica;
         info[1]=grupoElegido;
-        info[2]=String.valueOf(turnos[posCMB]);
+        info[2]=String.valueOf(turnos.get(posCMB));
         info[3]=txt_numeroLista.getText();
         info[4]=txt_boleta.getText();
         info[5]=txt_apellidoPaterno.getText();
@@ -555,7 +556,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
             String []info=new String[9];
         info[0]=identifica;
         info[1]=grupoElegido;
-        info[2]=String.valueOf(turnos[posCMB]);
+        info[2]=String.valueOf(turnos.get(posCMB));
         info[3]=txt_numeroLista.getText();
         info[4]=txt_boleta.getText();
         info[5]=txt_apellidoPaterno.getText();
