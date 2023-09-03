@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Random;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;//libreria para arreglo dinámico
 
 /**
  *
@@ -41,7 +42,7 @@ public class generarGrupo extends javax.swing.JInternalFrame {
     ResultSet rs=null;
     PreparedStatement ps=null;
     Statement st=null;
-    int turnos[]=new int[5];
+    ArrayList<Integer> turnos = new ArrayList<Integer>();//Arreglo dinámico donde se guarda el valor del turno
     int posCMB=0;
     int turnoEntero;
     int[] numerosDeListaSeleccionados= new int[15];
@@ -112,7 +113,7 @@ void consultarAlumnos(){
             while(rs.next()){
                 i++;
                 grup=rs.getString(1);
-                turnos[i]=rs.getInt(2);
+                turnos.add(rs.getInt(2)); //código para añadir información al arreglo dinámico se guarda el valor del turno
                 cmb_grupos.addItem(grup);
                 cmb_grupos.requestFocus();
             }
@@ -481,6 +482,10 @@ void consultarAlumnos(){
 
     private void btn_generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generarActionPerformed
         // TODO add your handling code here:
+        if(cmb_grupos.getSelectedIndex()==0||cmb_grupos.getSelectedIndex()==-1){
+            //Si se ha seleccionado el primer bojeto o no se ha seleccionado ninguno
+         JOptionPane.showMessageDialog(this,"No se ha seleccionado ningún grupo", "Atención mamahuevo", HEIGHT);
+        }else{//si hay algún objeto seleccionado
         //Código que elije 15 numeros al azar
         int[] numerosDeLista= new int[31];
         
@@ -524,7 +529,7 @@ void consultarAlumnos(){
         turnoEntero=1;
     }
     consultarAlumnos2();
-    
+        }
     }//GEN-LAST:event_btn_generarActionPerformed
 
     private void cmb_gruposItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmb_gruposItemStateChanged
@@ -534,7 +539,7 @@ void consultarAlumnos(){
                 posCMB=cmb_grupos.getSelectedIndex();
                 if(posCMB>0){
                     grupoElegido=cmb_grupos.getSelectedItem().toString();
-                    if(turnos[posCMB]==0){
+                    if(turnos.get(posCMB-1)==0){
                         lbl_turnoEditable.setText("Matutino");
                         lbl_turnoEditable.setVisible(true);
                     }

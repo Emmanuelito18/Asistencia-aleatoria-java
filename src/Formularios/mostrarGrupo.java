@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;*/
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;//libreria para arreglo dinámico
 
 /**
  *
@@ -31,7 +32,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     ResultSet rs=null;
     PreparedStatement ps=null;
     Statement st=null;
-    int turnos[]=new int[5];
+    ArrayList<Integer> turnos = new ArrayList<Integer>();//Arreglo dinámico donde se guarda el valor del turno
     int posCMB=0;
     
     
@@ -88,7 +89,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
             while(rs.next()){
                 i++;
                 grup=rs.getString(1);
-                turnos[i]=rs.getInt(2);
+                turnos.add(rs.getInt(2)); //código para añadir información al arreglo dinámico se guarda el valor del turno
                 cmb_grupos.addItem(grup);
                 cmb_grupos.requestFocus();
             }
@@ -299,7 +300,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
                 posCMB=cmb_grupos.getSelectedIndex();
                 if(posCMB>0){
                     grupoElegido=cmb_grupos.getSelectedItem().toString();
-                    if(turnos[posCMB]==0){
+                    if(turnos.get(posCMB-1)==0){
                         lbl_turnoEditable.setText("Matutino");
                         lbl_turnoEditable.setVisible(true);
                     }

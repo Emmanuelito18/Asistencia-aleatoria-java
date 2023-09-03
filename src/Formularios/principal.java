@@ -23,9 +23,7 @@ public class principal extends javax.swing.JFrame {
      */
     public principal() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setExtendedState(MAXIMIZED_BOTH);
-        
+        this.setLocationRelativeTo(null);        
     }
 
     /**
@@ -72,6 +70,9 @@ public class principal extends javax.swing.JFrame {
         mni_nemo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 1366, 728));
+        setMaximumSize(new java.awt.Dimension(1366, 728));
+        setPreferredSize(new java.awt.Dimension(1366, 728));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
@@ -318,7 +319,7 @@ public class principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(252, 252, 252)
                 .addComponent(lbl_titulo)
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(541, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

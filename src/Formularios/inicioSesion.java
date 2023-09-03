@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -297,7 +298,16 @@ public class inicioSesion extends javax.swing.JFrame {
             public void run() {
               
                 try {
+                    // Crea un objeto property
+                    Properties props = new Properties();
                     
+                    //Esta propiedad cambia el estilo del layout de la barra de titulo de la ventana
+                    props.put("macStyleWindowDecoration", "on");
+                    //Esta propiedad cmabia el texto en los menus desplegables
+                    props.put("logoString", "Asistencia aleatoria");
+                    //Establece el tema a la que le establece la propiedad
+                    com.jtattoo.plaf.mcwin.McWinLookAndFeel.setCurrentTheme(props);
+                    // Select the Look and Feel
                     /*UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
                     //SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MangoSkin");
                     SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
