@@ -307,9 +307,6 @@ public class inicioSesion extends javax.swing.JFrame {
                 //Obtener el look And Feel
                 String apariencia=prop.getProperty("lookAndFeel");
                 if(apariencia!=null){
-                    if(apariencia.contains(apariencia)){
-                        
-                    }
                     if(apariencia.equals("com.jtattoo.plaf.mcwin.McWinLookAndFeel")){
                         try {
                             // Crea un objeto property
