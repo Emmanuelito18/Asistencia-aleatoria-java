@@ -4,8 +4,13 @@
  */
 package Formularios;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -21,9 +26,18 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
+    private Properties prop;
+    
     public principal() {
         initComponents();
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
+        prop=new Properties();
+        //Carga el archivo .properties
+        try{
+            prop.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -427,85 +441,24 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_mni_manualActionPerformed
 
     private void mni_macAntiguoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macAntiguoActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
-            SwingUtilities.updateComponentTreeUI(this);
-            //Actualiza la apariencia de lso componentes del JFrame
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        changeLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
     }//GEN-LAST:event_mni_macAntiguoActionPerformed
 
     private void mni_macClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macClaroActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        changeLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
     }//GEN-LAST:event_mni_macClaroActionPerformed
 
     private void mni_macOscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_macOscuroActionPerformed
-        try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        changeLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
     }//GEN-LAST:event_mni_macOscuroActionPerformed
 
     private void mni_mangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_mangoActionPerformed
-        try {
-            UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
-            SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MangoSkin");
-            //Código para Look And Feel para Substance
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        changeLookAndFeel("org.jvnet.substance.skin.MangoSkin");
         
     }//GEN-LAST:event_mni_mangoActionPerformed
 
     private void mni_nemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_nemoActionPerformed
-        try {
-            UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
-            SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        changeLookAndFeel("org.jvnet.substance.skin.FindingNemoSkin");
     }//GEN-LAST:event_mni_nemoActionPerformed
 
     /**
@@ -568,6 +521,76 @@ public class principal extends javax.swing.JFrame {
     }
     public void fCaracteristica(){
         JOptionPane.showMessageDialog(null,"Lo sentimos esta caracteristica aún no está disponible","Información que cura",JOptionPane.INFORMATION_MESSAGE);
+    }
+    private void changeLookAndFeel(String lookAndFeel){
+        if(lookAndFeel.contains("org.jvnet.substance")){
+            try {
+                UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
+                SubstanceLookAndFeel.setSkin(lookAndFeel);
+                //Código para Look And Feel para Substance
+                SwingUtilities.updateComponentTreeUI(this);
+                prop.setProperty("lookAndFeel",lookAndFeel);
+                prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }catch(Exception e){
+            e.printStackTrace();
+            }
+        }else if(lookAndFeel.equals("com.jtattoo.plaf.mcwin.McWinLookAndFeel")){
+            /*tiene un problema al cambiar a este estilo si el programa no se
+            abre con este estilo desde el inicio*/
+            try {
+                // Crea un objeto property
+                Properties props = new Properties();
+                //Esta propiedad cambia el estilo del layout de la barra de titulo de la ventana
+                props.put("macStyleWindowDecoration", "on");
+                //Esta propiedad cmabia el texto en los menus desplegables
+                props.put("logoString", "Asistencia aleatoria");
+                //Establece el tema a la que le establece la propiedad
+                com.jtattoo.plaf.mcwin.McWinLookAndFeel.setCurrentTheme(props);
+                //Select the Look and Feel
+                UIManager.setLookAndFeel(lookAndFeel);
+                SwingUtilities.updateComponentTreeUI(this);
+                prop.setProperty("lookAndFeel",lookAndFeel);
+                prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+        }else{
+            try{
+                UIManager.setLookAndFeel(lookAndFeel);
+                SwingUtilities.updateComponentTreeUI(this);
+                prop.setProperty("lookAndFeel",lookAndFeel);
+                prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

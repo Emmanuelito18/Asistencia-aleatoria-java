@@ -5,22 +5,24 @@
 package Formularios;
 
 import clases.conectarBase;
-import com.jtattoo.plaf.hifi.HiFiLookAndFeel;
-import java.awt.Image;
-import java.awt.Toolkit;
-import static java.awt.image.ImageObserver.HEIGHT;
+import java.awt.Image;//Eliminar libreria
+import java.awt.Toolkit;//Eliminar libreria
+import static java.awt.image.ImageObserver.HEIGHT;//Eliminar libreria
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.jvnet.substance.SubstanceLookAndFeel;
+/*Librerias para archivo properties y recordar de LookAndFeel*/
+import java.util.Properties;
+import javax.swing.UIManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -296,35 +298,71 @@ public class inicioSesion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              
-                try {
-                    // Crea un objeto property
-                    Properties props = new Properties();
-                    
-                    //Esta propiedad cambia el estilo del layout de la barra de titulo de la ventana
-                    props.put("macStyleWindowDecoration", "on");
-                    //Esta propiedad cmabia el texto en los menus desplegables
-                    props.put("logoString", "Asistencia aleatoria");
-                    //Establece el tema a la que le establece la propiedad
-                    com.jtattoo.plaf.mcwin.McWinLookAndFeel.setCurrentTheme(props);
-                    // Select the Look and Feel
-                    /*UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
-                    //SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MangoSkin");
-                    SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
-                    Código para Look And Feel para Substance
-                    */
-                    UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
-                    //UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
-                    //UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
-                    //look and feel jtatto hifi es un tema oscuro
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InstantiationException ex) {
-                    Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                Properties prop=new Properties();
+                try{
+                    prop.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                //Obtener el look And Feel
+                String apariencia=prop.getProperty("lookAndFeel");
+                if(apariencia!=null){
+                    if(apariencia.contains(apariencia)){
+                        
+                    }
+                    if(apariencia.equals("com.jtattoo.plaf.mcwin.McWinLookAndFeel")){
+                        try {
+                            // Crea un objeto property
+                            Properties props = new Properties();
+                            //Esta propiedad cambia el estilo del layout de la barra de titulo de la ventana
+                            props.put("macStyleWindowDecoration", "on");
+                            //Esta propiedad cmabia el texto en los menus desplegables
+                            props.put("logoString", "Asistencia aleatoria");
+                            //Establece el tema a la que le establece la propiedad
+                            com.jtattoo.plaf.mcwin.McWinLookAndFeel.setCurrentTheme(props);
+                            //Select the Look and Feel
+                            UIManager.setLookAndFeel(apariencia);
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (UnsupportedLookAndFeelException ex) {
+                            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }else{
+                        if(apariencia.contains("org.jvnet.substance")){
+                            /*para look and feel de substance
+                            tiene un problema cuando el programa inicia con alugna aprariencia de substance*/
+                            try{
+                                // Código para Look And Feel para Substance
+                                UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
+                                SubstanceLookAndFeel.setSkin(apariencia);
+                                JFrame.setDefaultLookAndFeelDecorated(true);
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InstantiationException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (UnsupportedLookAndFeelException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }else{
+                            try{
+                                UIManager.setLookAndFeel(apariencia);
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InstantiationException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (UnsupportedLookAndFeelException ex) {
+                                Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
                 }
                 inicioSesion inicio=new inicioSesion();
                 inicio.setVisible(true);
