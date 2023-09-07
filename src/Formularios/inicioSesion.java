@@ -295,6 +295,7 @@ public class inicioSesion extends javax.swing.JFrame {
         }
         //</editor-fold>
         
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel del usuario">
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -336,7 +337,7 @@ public class inicioSesion extends javax.swing.JFrame {
                                 // Código para Look And Feel para Substance
                                 UIManager.setLookAndFeel("org.jvnet.substance.SubstanceLookAndFeel");
                                 SubstanceLookAndFeel.setSkin(apariencia);
-                                JFrame.setDefaultLookAndFeelDecorated(true);
+                               JFrame.setDefaultLookAndFeelDecorated(true);
                             } catch (ClassNotFoundException ex) {
                                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                             } catch (InstantiationException ex) {
@@ -360,7 +361,7 @@ public class inicioSesion extends javax.swing.JFrame {
                             }
                         }
                     }
-                }
+                }//</editor-fold>
                 inicioSesion inicio=new inicioSesion();
                 inicio.setVisible(true);
                 inicio.setLocationRelativeTo(null);
