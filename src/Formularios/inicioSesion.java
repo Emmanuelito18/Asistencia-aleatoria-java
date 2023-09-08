@@ -23,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import propiedades.idioma;//Hace las traducciones del programa
 
 /**
  *
@@ -41,6 +42,8 @@ public class inicioSesion extends javax.swing.JFrame {
         conexion=new conectarBase();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        this.lenguajeConfigurado();//Lee el idioma del archivo properties y traduce el programa
     }
 
     /*Icono del JFrame*/
@@ -264,7 +267,32 @@ public class inicioSesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Solo se permiten 40 caracteres como máximo","Error", HEIGHT);
         }
     }//GEN-LAST:event_txt_correoKeyTyped
-
+//<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_titulo"));
+        this.lbl_correo.setText(traduccion.getProperty("lbl_correo"));
+        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contraseña"));
+        this.btn_iniciar.setText(traduccion.getProperty("btn_iniciar"));
+        this.btn_recuperar.setText(traduccion.getProperty("btn_recuperar"));
+        this.btn_registrarse.setText(traduccion.getProperty("btn_registrarse"));
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
     /**
      * @param args the command line arguments
      */
@@ -361,7 +389,8 @@ public class inicioSesion extends javax.swing.JFrame {
                             }
                         }
                     }
-                }//</editor-fold>
+                }//</editor-fold>              
+                
                 inicioSesion inicio=new inicioSesion();
                 inicio.setVisible(true);
                 inicio.setLocationRelativeTo(null);
