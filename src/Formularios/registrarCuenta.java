@@ -77,7 +77,6 @@ public class registrarCuenta extends javax.swing.JFrame {
         lbl_AvisoApellidoPaterno = new javax.swing.JLabel();
         lbl_AvisoApellidoMaterno = new javax.swing.JLabel();
         lbl_AvisoCorreoElectronico = new javax.swing.JLabel();
-        mnu_menu = new javax.swing.JMenuBar();
 
         jMenu1.setText("jMenu1");
 
@@ -394,8 +393,6 @@ public class registrarCuenta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setJMenuBar(mnu_menu);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -411,7 +408,7 @@ public class registrarCuenta extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(lbl_titulo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -719,7 +716,6 @@ public class registrarCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_nombre;
     private javax.swing.JLabel lbl_texto;
     private javax.swing.JLabel lbl_titulo;
-    private javax.swing.JMenuBar mnu_menu;
     private javax.swing.JPasswordField psw_confirmarContraseña;
     private javax.swing.JPasswordField psw_contraseña;
     private javax.swing.JRadioButton rbtn_hombre;
