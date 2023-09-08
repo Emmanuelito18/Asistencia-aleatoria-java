@@ -55,7 +55,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_titulo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_correo = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
         btn_enviar = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
@@ -66,9 +66,9 @@ public class recuperarCuenta extends javax.swing.JFrame {
         lbl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_titulo.setText("Recuperar cuenta");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Ingrese su correo");
+        lbl_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_correo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_correo.setText("Ingrese su correo");
 
         txt_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -98,7 +98,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_correo)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_correo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(106, 106, 106))
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
@@ -113,7 +113,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(lbl_titulo)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel2)
+                .addComponent(lbl_correo)
                 .addGap(18, 18, 18)
                 .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
@@ -214,7 +214,7 @@ void consultarCorreos(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_enviar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_correo;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
