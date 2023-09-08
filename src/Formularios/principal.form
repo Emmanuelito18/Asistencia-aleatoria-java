@@ -55,7 +55,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnu_Idioma">
+        <Menu class="javax.swing.JMenu" name="mnu_idioma">
           <Properties>
             <Property name="text" type="java.lang.String" value="Idioma"/>
           </Properties>
@@ -121,7 +121,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="mnu_temas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Temas"/>
           </Properties>

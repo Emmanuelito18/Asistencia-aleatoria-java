@@ -66,7 +66,7 @@ public class principal extends javax.swing.JFrame {
         mni_generarAlumnos = new javax.swing.JMenuItem();
         Separador2 = new javax.swing.JPopupMenu.Separator();
         mni_salir = new javax.swing.JMenuItem();
-        mnu_Idioma = new javax.swing.JMenu();
+        mnu_idioma = new javax.swing.JMenu();
         mni_espanol = new javax.swing.JMenuItem();
         mni_ingles = new javax.swing.JMenuItem();
         Separador3 = new javax.swing.JPopupMenu.Separator();
@@ -76,7 +76,7 @@ public class principal extends javax.swing.JFrame {
         mni_manual = new javax.swing.JMenuItem();
         Separador4 = new javax.swing.JPopupMenu.Separator();
         mni_informacion = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        mnu_temas = new javax.swing.JMenu();
         mni_macAntiguo = new javax.swing.JMenuItem();
         mni_macClaro = new javax.swing.JMenuItem();
         mni_macOscuro = new javax.swing.JMenuItem();
@@ -222,7 +222,7 @@ public class principal extends javax.swing.JFrame {
 
         mnubr_menu.add(mnu_archivo);
 
-        mnu_Idioma.setText("Idioma");
+        mnu_idioma.setText("Idioma");
 
         mni_espanol.setText("Español");
         mni_espanol.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +230,7 @@ public class principal extends javax.swing.JFrame {
                 mni_espanolActionPerformed(evt);
             }
         });
-        mnu_Idioma.add(mni_espanol);
+        mnu_idioma.add(mni_espanol);
 
         mni_ingles.setText("English");
         mni_ingles.addActionListener(new java.awt.event.ActionListener() {
@@ -238,8 +238,8 @@ public class principal extends javax.swing.JFrame {
                 mni_inglesActionPerformed(evt);
             }
         });
-        mnu_Idioma.add(mni_ingles);
-        mnu_Idioma.add(Separador3);
+        mnu_idioma.add(mni_ingles);
+        mnu_idioma.add(Separador3);
 
         mni_frances.setText("Français");
         mni_frances.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +247,7 @@ public class principal extends javax.swing.JFrame {
                 mni_francesActionPerformed(evt);
             }
         });
-        mnu_Idioma.add(mni_frances);
+        mnu_idioma.add(mni_frances);
 
         mni_italiano.setText("Italiano");
         mni_italiano.addActionListener(new java.awt.event.ActionListener() {
@@ -255,9 +255,9 @@ public class principal extends javax.swing.JFrame {
                 mni_italianoActionPerformed(evt);
             }
         });
-        mnu_Idioma.add(mni_italiano);
+        mnu_idioma.add(mni_italiano);
 
-        mnubr_menu.add(mnu_Idioma);
+        mnubr_menu.add(mnu_idioma);
 
         mnu_ayuda.setText("Ayuda");
 
@@ -280,7 +280,7 @@ public class principal extends javax.swing.JFrame {
 
         mnubr_menu.add(mnu_ayuda);
 
-        jMenu1.setText("Temas");
+        mnu_temas.setText("Temas");
 
         mni_macAntiguo.setText("Mac antiguo");
         mni_macAntiguo.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +288,7 @@ public class principal extends javax.swing.JFrame {
                 mni_macAntiguoActionPerformed(evt);
             }
         });
-        jMenu1.add(mni_macAntiguo);
+        mnu_temas.add(mni_macAntiguo);
 
         mni_macClaro.setText("Mac claro");
         mni_macClaro.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +296,7 @@ public class principal extends javax.swing.JFrame {
                 mni_macClaroActionPerformed(evt);
             }
         });
-        jMenu1.add(mni_macClaro);
+        mnu_temas.add(mni_macClaro);
 
         mni_macOscuro.setText("Mac oscuro");
         mni_macOscuro.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +304,7 @@ public class principal extends javax.swing.JFrame {
                 mni_macOscuroActionPerformed(evt);
             }
         });
-        jMenu1.add(mni_macOscuro);
+        mnu_temas.add(mni_macOscuro);
 
         mni_mango.setText("Mango");
         mni_mango.addActionListener(new java.awt.event.ActionListener() {
@@ -312,7 +312,7 @@ public class principal extends javax.swing.JFrame {
                 mni_mangoActionPerformed(evt);
             }
         });
-        jMenu1.add(mni_mango);
+        mnu_temas.add(mni_mango);
 
         mni_nemo.setText("Nemo");
         mni_nemo.addActionListener(new java.awt.event.ActionListener() {
@@ -320,9 +320,9 @@ public class principal extends javax.swing.JFrame {
                 mni_nemoActionPerformed(evt);
             }
         });
-        jMenu1.add(mni_nemo);
+        mnu_temas.add(mni_nemo);
 
-        mnubr_menu.add(jMenu1);
+        mnubr_menu.add(mnu_temas);
 
         setJMenuBar(mnubr_menu);
 
@@ -603,7 +603,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_generarAlumnos;
     private javax.swing.JButton btn_mostrarGrupo;
     private javax.swing.JDesktopPane dsk_ventanas;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JMenuItem mni_crearGrupo;
@@ -622,9 +621,10 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mni_mostrarGrupo;
     private javax.swing.JMenuItem mni_nemo;
     private javax.swing.JMenuItem mni_salir;
-    private javax.swing.JMenu mnu_Idioma;
     private javax.swing.JMenu mnu_archivo;
     private javax.swing.JMenu mnu_ayuda;
+    private javax.swing.JMenu mnu_idioma;
+    private javax.swing.JMenu mnu_temas;
     private javax.swing.JMenuBar mnubr_menu;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
