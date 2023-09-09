@@ -192,12 +192,12 @@ void consultarAlumnos(){
     private void initComponents() {
 
         lbl_titulo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnl_grupos = new javax.swing.JPanel();
         lbl_grupo = new javax.swing.JLabel();
         cmb_grupos = new javax.swing.JComboBox<>();
         lbl_turno = new javax.swing.JLabel();
         lbl_turnoEditable = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pnl_alumnos = new javax.swing.JPanel();
         lbl_grupoCompleto = new javax.swing.JLabel();
         lbl_excepciones = new javax.swing.JLabel();
         lbl_asisten = new javax.swing.JLabel();
@@ -219,7 +219,7 @@ void consultarAlumnos(){
         lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_titulo.setText("Generar alumnos");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Grupos"));
+        pnl_grupos.setBorder(javax.swing.BorderFactory.createTitledBorder("Grupos"));
 
         lbl_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_grupo.setText("Grupo:");
@@ -237,11 +237,11 @@ void consultarAlumnos(){
         lbl_turnoEditable.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_turnoEditable.setText("Texto editable");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_gruposLayout = new javax.swing.GroupLayout(pnl_grupos);
+        pnl_grupos.setLayout(pnl_gruposLayout);
+        pnl_gruposLayout.setHorizontalGroup(
+            pnl_gruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_gruposLayout.createSequentialGroup()
                 .addGap(246, 246, 246)
                 .addComponent(lbl_grupo)
                 .addGap(18, 18, 18)
@@ -252,12 +252,12 @@ void consultarAlumnos(){
                 .addComponent(lbl_turnoEditable)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnl_gruposLayout.setVerticalGroup(
+            pnl_gruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_gruposLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_gruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_gruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmb_grupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbl_turno)
                         .addComponent(lbl_turnoEditable))
@@ -265,7 +265,7 @@ void consultarAlumnos(){
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Alumnos"));
+        pnl_alumnos.setBorder(javax.swing.BorderFactory.createTitledBorder("Alumnos"));
 
         lbl_grupoCompleto.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_grupoCompleto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -389,50 +389,50 @@ void consultarAlumnos(){
         });
         jScrollPane7.setViewportView(tb_excepciones);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnl_alumnosLayout = new javax.swing.GroupLayout(pnl_alumnos);
+        pnl_alumnos.setLayout(pnl_alumnosLayout);
+        pnl_alumnosLayout.setHorizontalGroup(
+            pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnosLayout.createSequentialGroup()
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_grupoCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(lbl_excepciones, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
+                        .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_alumnosLayout.createSequentialGroup()
+                                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btn_agregar)
                                     .addComponent(btn_eliminar))
                                 .addGap(10, 10, 10))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnosLayout.createSequentialGroup()
                                 .addComponent(btn_generar)
                                 .addGap(18, 18, 18)))
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_asisten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btn_enviarResultado)
                 .addGap(178, 178, 178))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnl_alumnosLayout.setVerticalGroup(
+            pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnosLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_grupoCompleto)
                     .addComponent(lbl_excepciones))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addComponent(btn_agregar)
                         .addGap(18, 18, 18)
                         .addComponent(btn_eliminar)
@@ -442,9 +442,9 @@ void consultarAlumnos(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_asisten)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnosLayout.createSequentialGroup()
                         .addComponent(btn_enviarResultado)
                         .addGap(38, 38, 38)))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -456,8 +456,8 @@ void consultarAlumnos(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnl_grupos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnl_alumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(377, 377, 377)
@@ -470,9 +470,9 @@ void consultarAlumnos(){
                 .addGap(18, 18, 18)
                 .addComponent(lbl_titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_grupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnl_alumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -621,8 +621,6 @@ void consultarAlumnos(){
     private javax.swing.JButton btn_enviarResultado;
     private javax.swing.JButton btn_generar;
     private javax.swing.JComboBox<String> cmb_grupos;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -633,6 +631,8 @@ void consultarAlumnos(){
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_turno;
     private javax.swing.JLabel lbl_turnoEditable;
+    private javax.swing.JPanel pnl_alumnos;
+    private javax.swing.JPanel pnl_grupos;
     private javax.swing.JTable tb_asisten;
     private javax.swing.JTable tb_excepciones;
     private javax.swing.JTable tb_grupo;
