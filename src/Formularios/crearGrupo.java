@@ -59,6 +59,7 @@ public class crearGrupo extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        lbl_titulo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbl_apellidoPaterno = new javax.swing.JLabel();
         txt_apellidoPaterno = new javax.swing.JTextField();
@@ -82,7 +83,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_avisoBoleta = new javax.swing.JLabel();
         lbl_avisoNumeroLista = new javax.swing.JLabel();
         lbl_avisoCorreo = new javax.swing.JLabel();
-        lbl_titulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txt_grupo = new javax.swing.JTextField();
         lbl_turno = new javax.swing.JLabel();
@@ -96,6 +96,10 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+
+        lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
+        lbl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_titulo.setText("Crear grupo");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
@@ -353,10 +357,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
                     .addComponent(btn_cancelar))
                 .addGap(14, 14, 14))
         );
-
-        lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
-        lbl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_titulo.setText("Crear grupo");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Grupo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
@@ -621,13 +621,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
-    private void tb_alumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_alumnosMouseClicked
-        // TODO add your handling code here:
-        fila=tb_alumnos.getSelectedRow();
-        btn_guardarAlumno.setEnabled(false);
-        btn_editarAlumno.setEnabled(true);
-    }//GEN-LAST:event_tb_alumnosMouseClicked
-
     private void btn_editarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarAlumnoActionPerformed
         // TODO add your handling code here:
         if(fila==-1){
@@ -778,6 +771,13 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         validarCamposVacios();
         habilitarBoton();
     }//GEN-LAST:event_txt_correoKeyReleased
+
+    private void tb_alumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_alumnosMouseClicked
+        // TODO add your handling code here:
+        fila=tb_alumnos.getSelectedRow();
+        btn_guardarAlumno.setEnabled(false);
+        btn_editarAlumno.setEnabled(true);
+    }//GEN-LAST:event_tb_alumnosMouseClicked
     
     private void limpiarCampos(){
         txt_apellidoPaterno.setText("");

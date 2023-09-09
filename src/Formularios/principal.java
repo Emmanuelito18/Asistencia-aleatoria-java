@@ -49,13 +49,13 @@ public class principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_titulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btn_crearGrupo = new javax.swing.JButton();
         btn_editarGrupo = new javax.swing.JButton();
         btn_mostrarGrupo = new javax.swing.JButton();
         btn_generarAlumnos = new javax.swing.JButton();
         salir = new javax.swing.JButton();
-        lbl_titulo = new javax.swing.JLabel();
         dsk_ventanas = new javax.swing.JDesktopPane();
         mnubr_menu = new javax.swing.JMenuBar();
         mnu_archivo = new javax.swing.JMenu();
@@ -87,6 +87,9 @@ public class principal extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 1366, 728));
         setMaximumSize(new java.awt.Dimension(1366, 728));
         setPreferredSize(new java.awt.Dimension(1366, 728));
+
+        lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
+        lbl_titulo.setText("Asistencia aleatoria");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
@@ -159,9 +162,6 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(salir)
                 .addGap(89, 89, 89))
         );
-
-        lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
-        lbl_titulo.setText("Asistencia aleatoria");
 
         dsk_ventanas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
