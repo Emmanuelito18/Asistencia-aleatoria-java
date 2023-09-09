@@ -50,7 +50,7 @@ public class principal extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_titulo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnl_acciones = new javax.swing.JPanel();
         btn_crearGrupo = new javax.swing.JButton();
         btn_editarGrupo = new javax.swing.JButton();
         btn_mostrarGrupo = new javax.swing.JButton();
@@ -91,7 +91,7 @@ public class principal extends javax.swing.JFrame {
         lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_titulo.setText("Asistencia aleatoria");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
+        pnl_acciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
         btn_crearGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         btn_crearGrupo.setText("Crear grupo");
@@ -133,13 +133,13 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_accionesLayout = new javax.swing.GroupLayout(pnl_acciones);
+        pnl_acciones.setLayout(pnl_accionesLayout);
+        pnl_accionesLayout.setHorizontalGroup(
+            pnl_accionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_accionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnl_accionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_generarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_mostrarGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -147,9 +147,9 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(btn_crearGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnl_accionesLayout.setVerticalGroup(
+            pnl_accionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_accionesLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(btn_crearGrupo)
                 .addGap(33, 33, 33)
@@ -336,7 +336,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(541, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_acciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dsk_ventanas))
         );
@@ -348,7 +348,7 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnl_acciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(dsk_ventanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -603,7 +603,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_generarAlumnos;
     private javax.swing.JButton btn_mostrarGrupo;
     private javax.swing.JDesktopPane dsk_ventanas;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JMenuItem mni_crearGrupo;
     private javax.swing.JMenuItem mni_editarGrupo;
@@ -626,6 +625,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_idioma;
     private javax.swing.JMenu mnu_temas;
     private javax.swing.JMenuBar mnubr_menu;
+    private javax.swing.JPanel pnl_acciones;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

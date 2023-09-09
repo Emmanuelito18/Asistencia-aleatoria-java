@@ -60,7 +60,14 @@ public class crearGrupo extends javax.swing.JInternalFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         lbl_titulo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pnl_grupo = new javax.swing.JPanel();
+        txt_grupo = new javax.swing.JTextField();
+        lbl_turno = new javax.swing.JLabel();
+        rbtn_matutino = new javax.swing.JRadioButton();
+        rbtn_vespertino = new javax.swing.JRadioButton();
+        lbl_avisoGrupo = new javax.swing.JLabel();
+        lbl_avisoTurno = new javax.swing.JLabel();
+        pnl_alumno = new javax.swing.JPanel();
         lbl_apellidoPaterno = new javax.swing.JLabel();
         txt_apellidoPaterno = new javax.swing.JTextField();
         txt_apellidoMaterno = new javax.swing.JTextField();
@@ -83,13 +90,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_avisoBoleta = new javax.swing.JLabel();
         lbl_avisoNumeroLista = new javax.swing.JLabel();
         lbl_avisoCorreo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        txt_grupo = new javax.swing.JTextField();
-        lbl_turno = new javax.swing.JLabel();
-        rbtn_matutino = new javax.swing.JRadioButton();
-        rbtn_vespertino = new javax.swing.JRadioButton();
-        lbl_avisoGrupo = new javax.swing.JLabel();
-        lbl_avisoTurno = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_alumnos = new javax.swing.JTable();
 
@@ -101,7 +101,96 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_titulo.setText("Crear grupo");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
+        pnl_grupo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Grupo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
+
+        txt_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        txt_grupo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_grupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_grupoActionPerformed(evt);
+            }
+        });
+        txt_grupo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_grupoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_grupoKeyTyped(evt);
+            }
+        });
+
+        lbl_turno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_turno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_turno.setText("Turno:");
+
+        buttonGroup1.add(rbtn_matutino);
+        rbtn_matutino.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        rbtn_matutino.setText("Matutino");
+        rbtn_matutino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_matutinoActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbtn_vespertino);
+        rbtn_vespertino.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        rbtn_vespertino.setText("Vespertino");
+        rbtn_vespertino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_vespertinoActionPerformed(evt);
+            }
+        });
+
+        lbl_avisoGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_avisoGrupo.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_avisoGrupo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_avisoGrupo.setText("*Campo obligatorio");
+
+        lbl_avisoTurno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_avisoTurno.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_avisoTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_avisoTurno.setText("*Campo obligatorio");
+
+        javax.swing.GroupLayout pnl_grupoLayout = new javax.swing.GroupLayout(pnl_grupo);
+        pnl_grupo.setLayout(pnl_grupoLayout);
+        pnl_grupoLayout.setHorizontalGroup(
+            pnl_grupoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_grupoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_grupoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_grupoLayout.createSequentialGroup()
+                        .addGroup(pnl_grupoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_turno)
+                            .addComponent(txt_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_avisoGrupo)
+                            .addGroup(pnl_grupoLayout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(rbtn_matutino)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbtn_vespertino)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lbl_avisoTurno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnl_grupoLayout.setVerticalGroup(
+            pnl_grupoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_grupoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_avisoGrupo)
+                .addGap(8, 8, 8)
+                .addComponent(lbl_turno)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_grupoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtn_matutino)
+                    .addComponent(rbtn_vespertino))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_avisoTurno)
+                .addContainerGap())
+        );
+
+        pnl_alumno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
         lbl_apellidoPaterno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_apellidoPaterno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -255,32 +344,32 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_avisoCorreo.setForeground(new java.awt.Color(255, 0, 0));
         lbl_avisoCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_alumnoLayout = new javax.swing.GroupLayout(pnl_alumno);
+        pnl_alumno.setLayout(pnl_alumnoLayout);
+        pnl_alumnoLayout.setHorizontalGroup(
+            pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnoLayout.createSequentialGroup()
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnoLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_apellidoPaterno)
                             .addComponent(lbl_apellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_avisoApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_apellidoMaterno)
                             .addComponent(lbl_apellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_avisoApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(78, 78, 78)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_nombre)
                             .addComponent(lbl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_avisoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnl_alumnoLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btn_guardarAlumno)
                                 .addGap(18, 18, 18)
@@ -289,162 +378,73 @@ public class crearGrupo extends javax.swing.JInternalFrame {
                                 .addComponent(btn_editarAlumno)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_cancelar))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnl_alumnoLayout.createSequentialGroup()
+                                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txt_boleta)
                                         .addComponent(lbl_boleta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lbl_avisoBoleta))
                                 .addGap(40, 40, 40)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txt_numeroLista, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbl_numeroLista, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbl_avisoNumeroLista))
                                 .addGap(32, 32, 32)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_correo)
                                     .addComponent(lbl_correo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lbl_avisoCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(14, 14, 14)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnl_alumnoLayout.setVerticalGroup(
+            pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_alumnoLayout.createSequentialGroup()
                         .addComponent(lbl_apellidoPaterno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_apellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnoLayout.createSequentialGroup()
                         .addComponent(lbl_nombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnoLayout.createSequentialGroup()
                         .addComponent(lbl_apellidoMaterno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_apellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_avisoApellidoPaterno)
                     .addComponent(lbl_avisoApellidoMaterno)
                     .addComponent(lbl_avisoNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnl_alumnoLayout.createSequentialGroup()
                             .addComponent(lbl_boleta)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txt_boleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnoLayout.createSequentialGroup()
                         .addComponent(lbl_numeroLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_numeroLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbl_correo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_avisoBoleta)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbl_avisoNumeroLista)
                         .addComponent(lbl_avisoCorreo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_guardarAlumno)
                     .addComponent(btn_guardarGrupo)
                     .addComponent(btn_editarAlumno)
                     .addComponent(btn_cancelar))
                 .addGap(14, 14, 14))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Grupo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
-
-        txt_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        txt_grupo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_grupo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_grupoActionPerformed(evt);
-            }
-        });
-        txt_grupo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_grupoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_grupoKeyTyped(evt);
-            }
-        });
-
-        lbl_turno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_turno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_turno.setText("Turno:");
-
-        buttonGroup1.add(rbtn_matutino);
-        rbtn_matutino.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        rbtn_matutino.setText("Matutino");
-        rbtn_matutino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtn_matutinoActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rbtn_vespertino);
-        rbtn_vespertino.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        rbtn_vespertino.setText("Vespertino");
-        rbtn_vespertino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtn_vespertinoActionPerformed(evt);
-            }
-        });
-
-        lbl_avisoGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_avisoGrupo.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_avisoGrupo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_avisoGrupo.setText("*Campo obligatorio");
-
-        lbl_avisoTurno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_avisoTurno.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_avisoTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_avisoTurno.setText("*Campo obligatorio");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_turno)
-                            .addComponent(txt_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_avisoGrupo)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(rbtn_matutino)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbtn_vespertino)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lbl_avisoTurno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txt_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_avisoGrupo)
-                .addGap(8, 8, 8)
-                .addComponent(lbl_turno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtn_matutino)
-                    .addComponent(rbtn_vespertino))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_avisoTurno)
-                .addContainerGap())
         );
 
         tb_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
@@ -468,9 +468,9 @@ public class crearGrupo extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnl_alumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pnl_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -486,9 +486,9 @@ public class crearGrupo extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnl_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -942,8 +942,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_guardarAlumno;
     private javax.swing.JButton btn_guardarGrupo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_apellidoMaterno;
     private javax.swing.JLabel lbl_apellidoPaterno;
@@ -961,6 +959,8 @@ public class crearGrupo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_numeroLista;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_turno;
+    private javax.swing.JPanel pnl_alumno;
+    private javax.swing.JPanel pnl_grupo;
     private javax.swing.JRadioButton rbtn_matutino;
     private javax.swing.JRadioButton rbtn_vespertino;
     private javax.swing.JTable tb_alumnos;

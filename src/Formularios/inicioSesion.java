@@ -70,7 +70,7 @@ public class inicioSesion extends javax.swing.JFrame {
         lbl_contraseña = new javax.swing.JLabel();
         psw_contraseña = new javax.swing.JPasswordField();
         btn_iniciar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        pnl_botonesCuenta = new javax.swing.JPanel();
         btn_recuperar = new javax.swing.JButton();
         btn_registrarse = new javax.swing.JButton();
 
@@ -113,7 +113,7 @@ public class inicioSesion extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        pnl_botonesCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         btn_recuperar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         btn_recuperar.setText("Recuperar cuenta");
@@ -131,22 +131,22 @@ public class inicioSesion extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_botonesCuentaLayout = new javax.swing.GroupLayout(pnl_botonesCuenta);
+        pnl_botonesCuenta.setLayout(pnl_botonesCuentaLayout);
+        pnl_botonesCuentaLayout.setHorizontalGroup(
+            pnl_botonesCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_botonesCuentaLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(btn_recuperar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btn_registrarse)
                 .addGap(19, 19, 19))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnl_botonesCuentaLayout.setVerticalGroup(
+            pnl_botonesCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_botonesCuentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_botonesCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_recuperar)
                     .addComponent(btn_registrarse))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -156,7 +156,7 @@ public class inicioSesion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_botonesCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +193,7 @@ public class inicioSesion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_iniciar)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnl_botonesCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -403,10 +403,10 @@ public class inicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton btn_iniciar;
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JButton btn_registrarse;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_contraseña;
     private javax.swing.JLabel lbl_correo;
     private javax.swing.JLabel lbl_titulo;
+    private javax.swing.JPanel pnl_botonesCuenta;
     private javax.swing.JPasswordField psw_contraseña;
     private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables

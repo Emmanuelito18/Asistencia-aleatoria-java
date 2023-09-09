@@ -118,7 +118,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         lbl_grupo = new javax.swing.JLabel();
         lbl_turno = new javax.swing.JLabel();
         lbl_turnoEditable = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnl_alumnos = new javax.swing.JPanel();
         lbl_alumnos = new javax.swing.JLabel();
         btn_editar = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -144,7 +144,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         lbl_turnoEditable.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_turnoEditable.setText("texto editable");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl_alumnos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lbl_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_alumnos.setText("Alumnos");
@@ -193,34 +193,34 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         lbl_nota3.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_nota3.setText("editar el grupo");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_alumnosLayout = new javax.swing.GroupLayout(pnl_alumnos);
+        pnl_alumnos.setLayout(pnl_alumnosLayout);
+        pnl_alumnosLayout.setHorizontalGroup(
+            pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_editar)
                             .addComponent(lbl_nota)
                             .addComponent(lbl_nota2)
                             .addComponent(lbl_nota3))
                         .addGap(23, 23, 23))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addComponent(lbl_alumnos)
                         .addContainerGap(666, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnl_alumnosLayout.setVerticalGroup(
+            pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_alumnosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_alumnos)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(lbl_nota)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,7 +229,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
                         .addComponent(lbl_nota3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_editar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
@@ -251,7 +251,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_alumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -282,7 +282,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
                     .addComponent(lbl_turno)
                     .addComponent(lbl_turnoEditable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_alumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -326,7 +326,6 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_editar;
     private javax.swing.JComboBox<String> cmb_grupos;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lbl_alumnos;
     private javax.swing.JLabel lbl_grupo;
@@ -336,6 +335,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_turno;
     private javax.swing.JLabel lbl_turnoEditable;
+    private javax.swing.JPanel pnl_alumnos;
     private javax.swing.JTable tb_alumnos;
     // End of variables declaration//GEN-END:variables
 }
