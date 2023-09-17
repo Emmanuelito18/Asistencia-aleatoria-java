@@ -65,7 +65,7 @@ public class registrarCuenta extends javax.swing.JFrame {
         lbl_confirmarContraseña = new javax.swing.JLabel();
         pnl_fechaNacimiento = new javax.swing.JPanel();
         Calendario = new com.toedter.calendar.JDateChooser();
-        lbl_texto = new javax.swing.JLabel();
+        lbl_fechaNacimiento = new javax.swing.JLabel();
         lbl_AvisoFechaNacimiento = new javax.swing.JLabel();
         pnl_genero = new javax.swing.JPanel();
         rbtn_hombre = new javax.swing.JRadioButton();
@@ -184,8 +184,8 @@ public class registrarCuenta extends javax.swing.JFrame {
         Calendario.setMaxSelectableDate(new java.util.Date(1704006093000L));
         Calendario.setMinSelectableDate(new java.util.Date(-510425907000L));
 
-        lbl_texto.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_texto.setText("seleccione su fecha de nacimiento:");
+        lbl_fechaNacimiento.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_fechaNacimiento.setText("seleccione su fecha de nacimiento:");
 
         lbl_AvisoFechaNacimiento.setFont(new java.awt.Font("Lucida Handwriting", 0, 14)); // NOI18N
         lbl_AvisoFechaNacimiento.setForeground(new java.awt.Color(255, 0, 0));
@@ -198,7 +198,7 @@ public class registrarCuenta extends javax.swing.JFrame {
             pnl_fechaNacimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_fechaNacimientoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_texto)
+                .addComponent(lbl_fechaNacimiento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_fechaNacimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_AvisoFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -211,7 +211,7 @@ public class registrarCuenta extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pnl_fechaNacimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_texto))
+                    .addComponent(lbl_fechaNacimiento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_AvisoFechaNacimiento)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -710,8 +710,8 @@ public class registrarCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_confirmarContraseña;
     private javax.swing.JLabel lbl_contraseña;
     private javax.swing.JLabel lbl_correo;
+    private javax.swing.JLabel lbl_fechaNacimiento;
     private javax.swing.JLabel lbl_nombre;
-    private javax.swing.JLabel lbl_texto;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JPanel pnl_camposUsuario;
     private javax.swing.JPanel pnl_fechaNacimiento;

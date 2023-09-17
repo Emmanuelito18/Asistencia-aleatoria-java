@@ -68,7 +68,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
 
         lbl_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_correo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_correo.setText("Ingrese su correo");
+        lbl_correo.setText("Ingrese su correo electrónico");
 
         txt_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -94,7 +94,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_correo)
