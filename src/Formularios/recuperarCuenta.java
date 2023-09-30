@@ -5,12 +5,17 @@
 package Formularios;
 
 import clases.conectarBase;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.util.Properties;//Librerias para cambiar el idioma
+import java.io.FileInputStream;
+import java.io.IOException;
+import propiedades.idioma;
 //Librerias para el correo
 /*import java.util.Properties;
 import java.util.logging.Level;
@@ -43,6 +48,7 @@ public class recuperarCuenta extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.lenguajeConfigurado();
     }
 
     /**
@@ -173,6 +179,27 @@ void consultarCorreos(){
         //Aquí se pondrá el código para enviar correos electrónicos
         JOptionPane.showMessageDialog(this,"Esta característica aún no está disponible","Oops,", HEIGHT);
     }
+    
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+        private void lenguajeConfigurado(){
+            Properties idioma=new Properties();
+            try{
+                idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            String lenguaje=idioma.getProperty("idioma");
+            cambiarIdioma(lenguaje);
+        }
+        private void cambiarIdioma(String nombreIdioma){
+            idioma traduccion=new idioma(nombreIdioma);
+            this.setTitle(traduccion.getProperty("tituloRecuperarCuenta"));
+            this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloRecuperarCuenta"));
+            this.lbl_correo.setText(traduccion.getProperty("lbl_correo"));//propiedad de inicioSesion.java
+            this.btn_enviar.setText(traduccion.getProperty("btn_enviar"));
+            this.btn_regresar.setText(traduccion.getProperty("btn_registrarse"));
+        }
+    //</editor-fold>
     /**
      * @param args the command line arguments
      */
