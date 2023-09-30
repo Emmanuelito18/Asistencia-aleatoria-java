@@ -284,9 +284,10 @@ public class inicioSesion extends javax.swing.JFrame {
     private void cambiarIdioma(String nombreIdioma){
         idioma traduccion=new idioma(nombreIdioma);
         //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
-        this.lbl_titulo.setText(traduccion.getProperty("lbl_titulo"));
+        this.setTitle(traduccion.getProperty("tituloIniciarSesion"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloIniciarSesion"));
         this.lbl_correo.setText(traduccion.getProperty("lbl_correo"));
-        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contraseña"));
+        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contrasena"));
         this.btn_iniciar.setText(traduccion.getProperty("btn_iniciar"));
         this.btn_recuperar.setText(traduccion.getProperty("btn_recuperar"));
         this.btn_registrarse.setText(traduccion.getProperty("btn_registrarse"));
