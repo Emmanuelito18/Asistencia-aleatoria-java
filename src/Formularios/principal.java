@@ -16,6 +16,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.jvnet.substance.SubstanceLookAndFeel;
+//Librerias para cambiar el idioma
+import propiedades.idioma;
 
 /**
  *
@@ -461,6 +463,34 @@ public class principal extends javax.swing.JFrame {
         changeLookAndFeel("org.jvnet.substance.skin.FindingNemoSkin");
     }//GEN-LAST:event_mni_nemoActionPerformed
 
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa"> linea 466
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloIniciarSesion"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloIniciarSesion"));
+        /*this.lbl_correo.setText(traduccion.getProperty("lbl_correo"));
+        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contrasena"));
+        this.btn_iniciar.setText(traduccion.getProperty("btn_iniciar"));
+        this.btn_recuperar.setText(traduccion.getProperty("btn_recuperar"));
+        this.btn_registrarse.setText(traduccion.getProperty("btn_registrarse"));*/
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
+    
     /**
      * @param args the command line arguments
      */
