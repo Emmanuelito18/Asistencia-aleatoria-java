@@ -439,6 +439,7 @@ public class principal extends javax.swing.JFrame {
     private void mni_italianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_italianoActionPerformed
         // TODO add your handling code here:
         cambiarIdioma("Italiano");
+        guardarIdioma("Italiano");
     }//GEN-LAST:event_mni_italianoActionPerformed
 
     private void mni_manualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_manualActionPerformed
@@ -460,7 +461,6 @@ public class principal extends javax.swing.JFrame {
 
     private void mni_mangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_mangoActionPerformed
         changeLookAndFeel("org.jvnet.substance.skin.MangoSkin");
-        
     }//GEN-LAST:event_mni_mangoActionPerformed
 
     private void mni_nemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_nemoActionPerformed
