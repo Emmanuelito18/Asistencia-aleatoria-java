@@ -40,6 +40,7 @@ public class principal extends javax.swing.JFrame {
         }catch(IOException e){
             e.printStackTrace();
         }
+        this.lenguajeConfigurado();
     }
 
     /**
@@ -419,22 +420,22 @@ public class principal extends javax.swing.JFrame {
 
     private void mni_espanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_espanolActionPerformed
         // TODO add your handling code here:
-        fCaracteristica();
+        cambiarIdioma("Español");
     }//GEN-LAST:event_mni_espanolActionPerformed
 
     private void mni_inglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_inglesActionPerformed
         // TODO add your handling code here:
-        fCaracteristica();
+        cambiarIdioma("Inglés");
     }//GEN-LAST:event_mni_inglesActionPerformed
 
     private void mni_francesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_francesActionPerformed
         // TODO add your handling code here:
-        fCaracteristica();
+        cambiarIdioma("Francés");
     }//GEN-LAST:event_mni_francesActionPerformed
 
     private void mni_italianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_italianoActionPerformed
         // TODO add your handling code here:
-        fCaracteristica();
+        cambiarIdioma("Italiano");
     }//GEN-LAST:event_mni_italianoActionPerformed
 
     private void mni_manualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_manualActionPerformed
@@ -480,14 +481,39 @@ public class principal extends javax.swing.JFrame {
     private void cambiarIdioma(String nombreIdioma){
         idioma traduccion=new idioma(nombreIdioma);
         //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
-        this.setTitle(traduccion.getProperty("tituloIniciarSesion"));
-        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloIniciarSesion"));
-        this.pnl_acciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null,traduccion.getProperty(""),javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,javax.swing.border.TitledBorder.DEFAULT_POSITION,new java.awt.Font("Lucida Handwriting",0,12)));
+        this.setTitle(traduccion.getProperty("tituloPrincipal"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloPrincipal"));
+        //Traducciones para panel Acciones
+        this.pnl_acciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null,traduccion.getProperty("pnl_accionesTitulo"),javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,javax.swing.border.TitledBorder.DEFAULT_POSITION,new java.awt.Font("Lucida Handwriting",0,12)));
         this.btn_crearGrupo.setText(traduccion.getProperty("accionesCrearGrupo"));
         this.btn_editarGrupo.setText(traduccion.getProperty("accionesEditarGrupo"));
         this.btn_mostrarGrupo.setText(traduccion.getProperty("accionesMostrarGrupo"));
         this.btn_generarAlumnos.setText(traduccion.getProperty("accionesGenerarAlumnos"));
         this.btn_salir.setText(traduccion.getProperty("accionesSalir"));
+        //Traducciones para mnu_archivo
+        this.mnu_archivo.setText(traduccion.getProperty("mnu_archivo"));
+        this.mni_crearGrupo.setText(traduccion.getProperty("accionesCrearGrupo"));
+        this.mni_editarGrupo.setText(traduccion.getProperty("accionesEditarGrupo"));
+        this.mni_mostrarGrupo.setText(traduccion.getProperty("accionesMostrarGrupo"));
+        this.mni_generarAlumnos.setText(traduccion.getProperty("accionesGenerarAlumnos"));
+        this.mni_salir.setText(traduccion.getProperty("accionesSalir"));
+        //Traducciones para mnu_idioma
+        this.mnu_idioma.setText(traduccion.getProperty("mnu_idioma"));
+        this.mni_espanol.setText(traduccion.getProperty("mni_espanol"));
+        this.mni_ingles.setText(traduccion.getProperty("mni_ingles"));
+        this.mni_frances.setText(traduccion.getProperty("mni_frances"));
+        this.mni_italiano.setText(traduccion.getProperty("mni_italiano"));
+        //Traducciones para mnu_ayuda
+        this.mnu_ayuda.setText(traduccion.getProperty("mnu_ayuda"));
+        this.mni_manual.setText(traduccion.getProperty("mni_manual"));
+        this.mni_informacion.setText(traduccion.getProperty("mni_informacion"));
+        //traducciones para mnu_temas
+        this.mnu_temas.setText(traduccion.getProperty("mnu_temas"));
+        this.mni_macAntiguo.setText(traduccion.getProperty("mni_macAntiguo"));
+        this.mni_macClaro.setText(traduccion.getProperty("mni_macClaro"));
+        this.mni_macOscuro.setText(traduccion.getProperty("mni_macOscuro"));
+        this.mni_mango.setText(traduccion.getProperty("mni_mango"));
+        this.mni_nemo.setText(traduccion.getProperty("mni_nemo"));
         //Se traduce toda la interfaz del programa
     }
     //</editor-fold>
