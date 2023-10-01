@@ -482,6 +482,7 @@ public class principal extends javax.swing.JFrame {
         //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
         this.setTitle(traduccion.getProperty("tituloIniciarSesion"));
         this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloIniciarSesion"));
+        this.pnl_acciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null,traduccion.getProperty(""),javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,javax.swing.border.TitledBorder.DEFAULT_POSITION,new java.awt.Font("Lucida Handwriting",0,12)));
         this.btn_crearGrupo.setText(traduccion.getProperty("accionesCrearGrupo"));
         this.btn_editarGrupo.setText(traduccion.getProperty("accionesEditarGrupo"));
         this.btn_mostrarGrupo.setText(traduccion.getProperty("accionesMostrarGrupo"));
