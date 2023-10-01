@@ -421,16 +421,19 @@ public class principal extends javax.swing.JFrame {
     private void mni_espanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_espanolActionPerformed
         // TODO add your handling code here:
         cambiarIdioma("Español");
+        guardarIdioma("Español");
     }//GEN-LAST:event_mni_espanolActionPerformed
 
     private void mni_inglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_inglesActionPerformed
         // TODO add your handling code here:
         cambiarIdioma("Inglés");
+        guardarIdioma("Inglés");
     }//GEN-LAST:event_mni_inglesActionPerformed
 
     private void mni_francesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_francesActionPerformed
         // TODO add your handling code here:
         cambiarIdioma("Francés");
+        guardarIdioma("Francés");
     }//GEN-LAST:event_mni_francesActionPerformed
 
     private void mni_italianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_italianoActionPerformed
@@ -515,6 +518,14 @@ public class principal extends javax.swing.JFrame {
         this.mni_mango.setText(traduccion.getProperty("mni_mango"));
         this.mni_nemo.setText(traduccion.getProperty("mni_nemo"));
         //Se traduce toda la interfaz del programa
+    }
+    private void guardarIdioma(String idiomaSeleccionado){
+        try{
+            prop.setProperty("idioma", idiomaSeleccionado);
+            prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"), null);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     //</editor-fold>
     
@@ -644,12 +655,9 @@ public class principal extends javax.swing.JFrame {
             }catch(Exception e){
                 e.printStackTrace();
             }
-        }
-        
-        
-        
+        }   
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu.Separator Separador1;
     private javax.swing.JPopupMenu.Separator Separador2;
