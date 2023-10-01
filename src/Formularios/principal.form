@@ -263,7 +263,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btn_generarAlumnos" max="32767" attributes="0"/>
-                      <Component id="salir" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_salir" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_mostrarGrupo" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_editarGrupo" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_crearGrupo" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
@@ -284,7 +284,7 @@
                   <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Component id="btn_generarAlumnos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="salir" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -335,7 +335,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_generarAlumnosActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="salir">
+        <Component class="javax.swing.JButton" name="btn_salir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Handwriting" size="12" style="0"/>
@@ -343,7 +343,7 @@
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

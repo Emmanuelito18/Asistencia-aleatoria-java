@@ -57,7 +57,7 @@ public class principal extends javax.swing.JFrame {
         btn_editarGrupo = new javax.swing.JButton();
         btn_mostrarGrupo = new javax.swing.JButton();
         btn_generarAlumnos = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
         dsk_ventanas = new javax.swing.JDesktopPane();
         mnubr_menu = new javax.swing.JMenuBar();
         mnu_archivo = new javax.swing.JMenu();
@@ -127,11 +127,11 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
-        salir.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
+        btn_salir.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
+                btn_salirActionPerformed(evt);
             }
         });
 
@@ -143,7 +143,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnl_accionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_generarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_mostrarGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_editarGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_crearGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,7 +161,7 @@ public class principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btn_generarAlumnos)
                 .addGap(29, 29, 29)
-                .addComponent(salir)
+                .addComponent(btn_salir)
                 .addGap(89, 89, 89))
         );
 
@@ -380,10 +380,10 @@ public class principal extends javax.swing.JFrame {
         fGenerarGrupo();
     }//GEN-LAST:event_btn_generarAlumnosActionPerformed
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
         fSalir();
-    }//GEN-LAST:event_salirActionPerformed
+    }//GEN-LAST:event_btn_salirActionPerformed
 
     private void mni_crearGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mni_crearGrupoActionPerformed
         // TODO add your handling code here:
@@ -482,11 +482,11 @@ public class principal extends javax.swing.JFrame {
         //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
         this.setTitle(traduccion.getProperty("tituloIniciarSesion"));
         this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloIniciarSesion"));
-        /*this.lbl_correo.setText(traduccion.getProperty("lbl_correo"));
-        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contrasena"));
-        this.btn_iniciar.setText(traduccion.getProperty("btn_iniciar"));
-        this.btn_recuperar.setText(traduccion.getProperty("btn_recuperar"));
-        this.btn_registrarse.setText(traduccion.getProperty("btn_registrarse"));*/
+        this.btn_crearGrupo.setText(traduccion.getProperty("accionesCrearGrupo"));
+        this.btn_editarGrupo.setText(traduccion.getProperty("accionesEditarGrupo"));
+        this.btn_mostrarGrupo.setText(traduccion.getProperty("accionesMostrarGrupo"));
+        this.btn_generarAlumnos.setText(traduccion.getProperty("accionesGenerarAlumnos"));
+        this.btn_salir.setText(traduccion.getProperty("accionesSalir"));
         //Se traduce toda la interfaz del programa
     }
     //</editor-fold>
@@ -632,6 +632,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_editarGrupo;
     private javax.swing.JButton btn_generarAlumnos;
     private javax.swing.JButton btn_mostrarGrupo;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JDesktopPane dsk_ventanas;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JMenuItem mni_crearGrupo;
@@ -656,6 +657,5 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_temas;
     private javax.swing.JMenuBar mnubr_menu;
     private javax.swing.JPanel pnl_acciones;
-    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }
