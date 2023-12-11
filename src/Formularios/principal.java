@@ -517,7 +517,7 @@ public class principal extends javax.swing.JFrame {
         this.mni_macOscuro.setText(traduccion.getProperty("mni_macOscuro"));
         this.mni_mango.setText(traduccion.getProperty("mni_mango"));
         this.mni_nemo.setText(traduccion.getProperty("mni_nemo"));
-        //Se traduce toda la interfaz del programa
+        //Se traduce toda la interfaz del programa     
     }
     private void guardarIdioma(String idiomaSeleccionado){
         try{

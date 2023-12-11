@@ -10,6 +10,8 @@ package Formularios;
  */
 import clases.conectarBase;
 import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +21,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.util.Calendar;
+import java.util.Properties;
+import javax.swing.border.Border;
+import propiedades.idioma;
+import javax.swing.border.TitledBorder;
 
 public class registrarCuenta extends javax.swing.JFrame {
 
@@ -36,6 +42,7 @@ public class registrarCuenta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         btn_registrar.setEnabled(false);
+        this.lenguajeConfigurado();
     }
 
     /**
@@ -416,7 +423,49 @@ public class registrarCuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- /*Método que valida el tipo de caracteres*/
+ //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloRegistrarCuenta"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloRegistrarCuenta"));
+        this.lbl_nombre.setText(traduccion.getProperty("lbl_nombre"));
+        this.lbl_apellidoPaterno.setText(traduccion.getProperty("lbl_apellidoPaterno"));
+        this.lbl_apellidoMaterno.setText(traduccion.getProperty("lbl_apellidoMaterno"));
+        this.lbl_correo.setText(traduccion.getProperty("lbl_correoRegistrarCuenta"));
+        this.lbl_contraseña.setText(traduccion.getProperty("lbl_contrasenaRegistrarCuenta"));
+        this.lbl_confirmarContraseña.setText(traduccion.getProperty("lbl_confirmarContrasena"));
+        Border pnl_FechaNacimiento=pnl_fechaNacimiento.getBorder();
+        TitledBorder ttl_fechaNacimiento=(TitledBorder) pnl_FechaNacimiento;
+        ttl_fechaNacimiento.setTitle(traduccion.getProperty("pnl_fechaNacimientoTitulo"));
+        this.lbl_fechaNacimiento.setText(traduccion.getProperty("lbl_fechaNacimiento"));
+        this.lbl_AvisoFechaNacimiento.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.rbtn_hombre.setText(traduccion.getProperty("rbtn_hombre"));
+        this.rbtn_mujer.setText(traduccion.getProperty("rbtn_mujer"));
+        this.lbl_AvisoGenero.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        Border pnl_Genero=pnl_genero.getBorder();
+        TitledBorder ttl_genero=(TitledBorder) pnl_Genero;
+        ttl_genero.setTitle(traduccion.getProperty("pnl_generoTitulo"));
+        this.btn_registrar.setText(traduccion.getProperty("btn_registrarRegistrarCuenta"));
+        this.btn_regresar.setText(traduccion.getProperty("btn_regresar"));
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
+
+    /*Método que valida el tipo de caracteres*/
     /*Utiliza el código ASCII*/
     public void validacionCaracteres(java.awt.event.KeyEvent evento){
         if(evento.getKeyChar()>=33&&evento.getKeyChar()<=64
@@ -440,7 +489,7 @@ public class registrarCuenta extends javax.swing.JFrame {
     /*Para los campos vacíos*/
     public void validarCamposVacios(){
         if(txt_nombre.getText().isEmpty()){
-            lbl_AvisoNombre.setText("*Campo obligatorio");
+           lbl_AvisoNombre.setText("*Campo obligatorio");
         }
         else{
             lbl_AvisoNombre.setText("");
