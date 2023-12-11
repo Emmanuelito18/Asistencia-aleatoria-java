@@ -448,17 +448,17 @@ public class registrarCuenta extends javax.swing.JFrame {
         this.lbl_correo.setText(traduccion.getProperty("lbl_correoRegistrarCuenta"));
         this.lbl_contraseña.setText(traduccion.getProperty("lbl_contrasenaRegistrarCuenta"));
         this.lbl_confirmarContraseña.setText(traduccion.getProperty("lbl_confirmarContrasena"));
-        Border pnl_FechaNacimiento=pnl_fechaNacimiento.getBorder();
-        TitledBorder ttl_fechaNacimiento=(TitledBorder) pnl_FechaNacimiento;
-        ttl_fechaNacimiento.setTitle(traduccion.getProperty("pnl_fechaNacimientoTitulo"));
+        Border pnl_FechaNacimiento=pnl_fechaNacimiento.getBorder();//Obtiene el borde actual del panel pnl_FechaNacimiento
+        TitledBorder ttl_fechaNacimiento=(TitledBorder) pnl_FechaNacimiento;//crea un objeto titledBorder con los valores del titledborder pnl_FechaNacimiento
+        ttl_fechaNacimiento.setTitle(traduccion.getProperty("pnl_fechaNacimientoTitulo"));//establece el titulo a ttl_fechaNacimiento
         this.lbl_fechaNacimiento.setText(traduccion.getProperty("lbl_fechaNacimiento"));
         this.lbl_AvisoFechaNacimiento.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
         this.rbtn_hombre.setText(traduccion.getProperty("rbtn_hombre"));
         this.rbtn_mujer.setText(traduccion.getProperty("rbtn_mujer"));
         this.lbl_AvisoGenero.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
-        Border pnl_Genero=pnl_genero.getBorder();
-        TitledBorder ttl_genero=(TitledBorder) pnl_Genero;
-        ttl_genero.setTitle(traduccion.getProperty("pnl_generoTitulo"));
+        Border pnl_Genero=pnl_genero.getBorder();//Obtiene el borde actual del panel pnl_genero
+        TitledBorder ttl_genero=(TitledBorder) pnl_Genero;//crea un objeto titledBorder con los valores del titledborder pnl_Genero
+        ttl_genero.setTitle(traduccion.getProperty("pnl_generoTitulo"));//establece el titulo a ttl_genero
         this.btn_registrar.setText(traduccion.getProperty("btn_registrarRegistrarCuenta"));
         this.btn_regresar.setText(traduccion.getProperty("btn_regresar"));
         //Se traduce toda la interfaz del programa
@@ -487,7 +487,7 @@ public class registrarCuenta extends javax.swing.JFrame {
         System.out.println(evento.getKeyChar()+0);*/
     }
     /*Para los campos vacíos*/
-    public void validarCamposVacios(){
+    public void validarCamposVacios(){//investigar como cambiar idioma de esto
         if(txt_nombre.getText().isEmpty()){
            lbl_AvisoNombre.setText("*Campo obligatorio");
         }
