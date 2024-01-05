@@ -26,6 +26,11 @@ public class conectarBase {
     public Statement st=null;
     public ResultSet rs=null;
     public PreparedStatement ps=null;
+    //variables para mostrar notificacion de fallo
+    public boolean falloConexion=false;
+    public String errorConexion=null;
+    public int codigoError=0;
+    public String estadoSQL=null;
     
     public conectarBase(){//constructor
         try{
@@ -33,7 +38,11 @@ public class conectarBase {
             conectar=DriverManager.getConnection(url,user,password);
         }
         catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"No existe la base de datos "+e);
+            falloConexion=true;
+            errorConexion=e.getMessage();
+            codigoError=e.getErrorCode();
+            estadoSQL=e.getSQLState();
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error: "+errorConexion+"\nEstado SQL: "+estadoSQL+"\nCódigo de error: "+codigoError);
             e.printStackTrace();
             System.exit(1);
         }
