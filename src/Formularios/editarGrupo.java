@@ -6,6 +6,8 @@ package Formularios;
 
 import clases.conectarBase;
 import java.awt.event.ItemEvent;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;/*
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +16,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;*/
 import java.util.ArrayList;//libreria para arreglo dinámico
+import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import propiedades.idioma;
 /**
  *
  * @author Emmanuelito18
@@ -50,6 +56,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         //btn_guardarAlumno.setEnabled(false);
         //btn_cancelar.setEnabled(false);
         consultarGrupos();
+        this.lenguajeConfigurado();
     }
     void consultarAlumnos(){
         String consulta="SELECT * FROM alumnos WHERE codigo_grupo = ?";
@@ -107,6 +114,61 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         }
         tb_alumnos.setModel(modelo);
     }
+    
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloEditarGrupo"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloEditarGrupo"));
+        Border pnl_Grupo=pnl_grupo.getBorder();//Obtiene el borde actual del panel pnl_grupo
+        TitledBorder ttl_grupo=(TitledBorder) pnl_Grupo;//crea un objeto titledBorder con los valores del titledborder pnl_Grupo
+        ttl_grupo.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_grupo
+        this.lbl_grupo.setText(traduccion.getProperty("lbl_grupo"));
+        this.lbl_turno.setText(traduccion.getProperty("lbl_turno"));
+        this.lbl_turnoEditable.setText(traduccion.getProperty("lbl_turnoEditableM"));//investigar como hacer cambio dinámico de este campo
+        this.lbl_alumnos.setText(traduccion.getProperty("lbl_alumnos"));
+        //investigar como traducir el modelo de tb_alumnos
+        this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
+        Border pnl_Alumno=pnl_alumno.getBorder();//Obtiene el borde actual del panel pnl_alumno
+        TitledBorder ttl_alumno=(TitledBorder) pnl_Alumno;//crea un objeto titledBorder con los valores del titledborder pnl_Alumno
+        ttl_alumno.setTitle(traduccion.getProperty("pnl_alumnoTitulo"));//establece el titulo a ttl_alumno
+        this.lbl_apellidoPaterno.setText(traduccion.getProperty("lbl_apellidoPaterno"));
+        //this.lbl_avisoApellidoPaterno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_apellidoMaterno.setText(traduccion.getProperty("lbl_apellidoMaterno"));
+        //this.lbl_avisoApellidoMaterno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_nombre.setText(traduccion.getProperty("lbl_nombre"));
+        //this.lbl_avisoNombre.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_boleta.setText(traduccion.getProperty("lbl_boleta"));
+        //this.lbl_avisoBoleta.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_numeroLista.setText(traduccion.getProperty("lbl_numeroLista"));
+        //this.lbl_avisoNumeroLista.setText(traduccion.getProperty("lbl_campoObligatorio"));
+        this.lbl_correo.setText(traduccion.getProperty("lbl_Correo"));//verificar este campo a traducir
+        //this.lbl_avisoCorreo.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));//investigar como hacer cambio dinámico de este campo
+        //investigar como traducir el modelo de la tabla tb_alumnos
+        this.btn_guardarAlumno.setText(traduccion.getProperty("btn_guardarAlumno"));
+        this.btn_guardarGrupo.setText(traduccion.getProperty("btn_guardarGrupo"));
+        this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
+        this.btn_cancelar.setText(traduccion.getProperty("btn_cancelar"));//Campo duplicado linea 75 y 87
+        this.btn_salir.setText(traduccion.getProperty("btn_salir"));
+        
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,11 +183,11 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         lbl_grupo = new javax.swing.JLabel();
         cmb_grupos = new javax.swing.JComboBox<>();
         lbl_turno = new javax.swing.JLabel();
-        btn_editarAlumno = new javax.swing.JButton();
+        lbl_turnoEditable = new javax.swing.JLabel();
         lbl_alumnos = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tb_alumnos = new javax.swing.JTable();
-        lbl_turnoEditable = new javax.swing.JLabel();
+        btn_editarAlumno = new javax.swing.JButton();
         pnl_alumno = new javax.swing.JPanel();
         lbl_apellidoPaterno = new javax.swing.JLabel();
         txt_apellidoPaterno = new javax.swing.JTextField();
@@ -168,13 +230,8 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         lbl_turno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_turno.setText("Turno:");
 
-        btn_editarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_editarAlumno.setText("Editar alumno");
-        btn_editarAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarAlumnoActionPerformed(evt);
-            }
-        });
+        lbl_turnoEditable.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
+        lbl_turnoEditable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         lbl_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_alumnos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -211,8 +268,13 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tb_alumnos);
 
-        lbl_turnoEditable.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
-        lbl_turnoEditable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_editarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_editarAlumno.setText("Editar alumno");
+        btn_editarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarAlumnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_grupoLayout = new javax.swing.GroupLayout(pnl_grupo);
         pnl_grupo.setLayout(pnl_grupoLayout);

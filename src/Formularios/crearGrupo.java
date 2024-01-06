@@ -816,7 +816,7 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         this.lbl_avisoTurno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
         Border pnl_Alumno=pnl_alumno.getBorder();//Obtiene el borde actual del panel pnl_alumno
         TitledBorder ttl_alumno=(TitledBorder) pnl_Alumno;//crea un objeto titledBorder con los valores del titledborder pnl_Alumno
-        ttl_alumno.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_alumno
+        ttl_alumno.setTitle(traduccion.getProperty("pnl_alumnoCrearGrupoTitulo"));//establece el titulo a ttl_alumno
         this.lbl_apellidoPaterno.setText(traduccion.getProperty("lbl_apellidoPaterno"));
         this.lbl_avisoApellidoPaterno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
         this.lbl_apellidoMaterno.setText(traduccion.getProperty("lbl_apellidoMaterno"));
