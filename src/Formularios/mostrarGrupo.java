@@ -6,16 +6,22 @@ package Formularios;
 
 import clases.conectarBase;
 import java.awt.event.ItemEvent;
-import java.sql.*;/*
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;*/
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;//libreria para arreglo dinámico
+import java.util.Properties;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import propiedades.idioma;
 
 /**
  *
@@ -47,6 +53,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         btn_editar.setVisible(false);
         lbl_turnoEditable.setVisible(false);
         consultarGrupos();        
+        this.lenguajeConfigurado();
     }
 
     void consultarAlumnos(){
@@ -105,6 +112,41 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         }
         tb_alumnos.setModel(modelo);
     }
+    
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloMostrarGrupo"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloMostrarGrupo"));
+        this.lbl_grupo.setText(traduccion.getProperty("lbl_grupo"));
+        this.lbl_turno.setText(traduccion.getProperty("lbl_Turno"));
+        this.lbl_turnoEditable.setText(traduccion.getProperty("lbl_turnoEditableM"));//investigar como hacer cambio dinámico de este campo
+        Border pnl_Alumnos=pnl_alumnos.getBorder();//Obtiene el borde actual del panel pnl_Alumnos
+        TitledBorder ttl_alumnos=(TitledBorder) pnl_Alumnos;//crea un objeto titledBorder con los valores del titledborder pnl_Alumnos
+        ttl_alumnos.setTitle(traduccion.getProperty("pnl_alumnos"));//establece el titulo a ttl_alumnos
+        //investigar como traducer el modelo de la tabla tb_alumnos
+        this.lbl_nota.setText(traduccion.getProperty("lbl_nota"));
+        this.lbl_nota2.setText(traduccion.getProperty("lbl_nota2"));
+        this.lbl_nota3.setText(traduccion.getProperty("lbl_nota3"));
+        this.btn_editar.setText(traduccion.getProperty("btn_editar"));
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,17 +158,16 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
 
         lbl_titulo = new javax.swing.JLabel();
         lbl_grupo = new javax.swing.JLabel();
+        cmb_grupos = new javax.swing.JComboBox<>();
         lbl_turno = new javax.swing.JLabel();
         lbl_turnoEditable = new javax.swing.JLabel();
         pnl_alumnos = new javax.swing.JPanel();
-        lbl_alumnos = new javax.swing.JLabel();
-        btn_editar = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tb_alumnos = new javax.swing.JTable();
         lbl_nota = new javax.swing.JLabel();
         lbl_nota2 = new javax.swing.JLabel();
         lbl_nota3 = new javax.swing.JLabel();
-        cmb_grupos = new javax.swing.JComboBox<>();
+        btn_editar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -138,25 +179,25 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         lbl_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_grupo.setText("Grupo:");
 
+        cmb_grupos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        cmb_grupos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmb_gruposItemStateChanged(evt);
+            }
+        });
+        cmb_grupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_gruposActionPerformed(evt);
+            }
+        });
+
         lbl_turno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_turno.setText("Truno:");
 
         lbl_turnoEditable.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_turnoEditable.setText("texto editable");
 
-        pnl_alumnos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        lbl_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_alumnos.setText("Alumnos");
-
-        btn_editar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_editar.setText("Editar grupo");
-        btn_editar.setEnabled(false);
-        btn_editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarActionPerformed(evt);
-            }
-        });
+        pnl_alumnos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alumnos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
         tb_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         tb_alumnos.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,35 +234,36 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         lbl_nota3.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_nota3.setText("editar el grupo");
 
+        btn_editar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_editar.setText("Editar grupo");
+        btn_editar.setEnabled(false);
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnl_alumnosLayout = new javax.swing.GroupLayout(pnl_alumnos);
         pnl_alumnos.setLayout(pnl_alumnosLayout);
         pnl_alumnosLayout.setHorizontalGroup(
             pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_editar)
-                            .addComponent(lbl_nota)
-                            .addComponent(lbl_nota2)
-                            .addComponent(lbl_nota3))
-                        .addGap(23, 23, 23))
-                    .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                        .addComponent(lbl_alumnos)
-                        .addContainerGap(666, Short.MAX_VALUE))))
+                    .addComponent(btn_editar)
+                    .addComponent(lbl_nota)
+                    .addComponent(lbl_nota2)
+                    .addComponent(lbl_nota3))
+                .addGap(23, 23, 23))
         );
         pnl_alumnosLayout.setVerticalGroup(
             pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_alumnos)
                 .addGroup(pnl_alumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addGap(26, 26, 26)
                         .addComponent(lbl_nota)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_nota2)
@@ -230,22 +272,10 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_editar))
                     .addGroup(pnl_alumnosLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(36, 36, 36)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
-
-        cmb_grupos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        cmb_grupos.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmb_gruposItemStateChanged(evt);
-            }
-        });
-        cmb_grupos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_gruposActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,7 +296,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_turnoEditable)
                             .addComponent(cmb_grupos, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 456, Short.MAX_VALUE))
+                .addGap(0, 462, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +357,6 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_editar;
     private javax.swing.JComboBox<String> cmb_grupos;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JLabel lbl_alumnos;
     private javax.swing.JLabel lbl_grupo;
     private javax.swing.JLabel lbl_nota;
     private javax.swing.JLabel lbl_nota2;
