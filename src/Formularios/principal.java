@@ -173,7 +173,7 @@ public class principal extends javax.swing.JFrame {
         dsk_ventanas.setLayout(dsk_ventanasLayout);
         dsk_ventanasLayout.setHorizontalGroup(
             dsk_ventanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 808, Short.MAX_VALUE)
         );
         dsk_ventanasLayout.setVerticalGroup(
             dsk_ventanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,7 +378,8 @@ public class principal extends javax.swing.JFrame {
 
     private void btn_generarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generarAlumnosActionPerformed
         // TODO add your handling code here:
-       JOptionPane.showMessageDialog(null,"Está característica aún no está terminada","Ups... esto aún es trabajo en progreso",JOptionPane.INFORMATION_MESSAGE);
+       DesktopNotify.showDesktopMessage("Esta caracteristica aún no está terminada","Ups... esto aun es trabajo en progreso",DesktopNotify.INFORMATION,9000L);
+       //JOptionPane.showMessageDialog(null,"Está característica aún no está terminada","Ups... esto aún es trabajo en progreso",JOptionPane.INFORMATION_MESSAGE);
         fGenerarGrupo();
     }//GEN-LAST:event_btn_generarAlumnosActionPerformed
 

@@ -10,11 +10,17 @@ package Formularios;
  */
 import clases.conectarBase;
 import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import propiedades.idioma;
 
 public class crearGrupo extends javax.swing.JInternalFrame {
 
@@ -47,6 +53,8 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Correo");
         this.tb_alumnos.setModel(modelo);
+        
+        this.lenguajeConfigurado();//Lee el idioma del archivo properties y traduce el programa
     }
 
     /**
@@ -62,10 +70,10 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_titulo = new javax.swing.JLabel();
         pnl_grupo = new javax.swing.JPanel();
         txt_grupo = new javax.swing.JTextField();
+        lbl_avisoGrupo = new javax.swing.JLabel();
         lbl_turno = new javax.swing.JLabel();
         rbtn_matutino = new javax.swing.JRadioButton();
         rbtn_vespertino = new javax.swing.JRadioButton();
-        lbl_avisoGrupo = new javax.swing.JLabel();
         lbl_avisoTurno = new javax.swing.JLabel();
         pnl_alumno = new javax.swing.JPanel();
         lbl_apellidoPaterno = new javax.swing.JLabel();
@@ -78,18 +86,18 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_boleta = new javax.swing.JLabel();
         txt_numeroLista = new javax.swing.JTextField();
         lbl_numeroLista = new javax.swing.JLabel();
-        btn_guardarAlumno = new javax.swing.JButton();
-        btn_guardarGrupo = new javax.swing.JButton();
-        btn_cancelar = new javax.swing.JButton();
         txt_correo = new javax.swing.JTextField();
         lbl_correo = new javax.swing.JLabel();
-        btn_editarAlumno = new javax.swing.JButton();
         lbl_avisoApellidoPaterno = new javax.swing.JLabel();
         lbl_avisoApellidoMaterno = new javax.swing.JLabel();
         lbl_avisoNombre = new javax.swing.JLabel();
         lbl_avisoBoleta = new javax.swing.JLabel();
         lbl_avisoNumeroLista = new javax.swing.JLabel();
         lbl_avisoCorreo = new javax.swing.JLabel();
+        btn_guardarAlumno = new javax.swing.JButton();
+        btn_guardarGrupo = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
+        btn_editarAlumno = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_alumnos = new javax.swing.JTable();
 
@@ -119,6 +127,11 @@ public class crearGrupo extends javax.swing.JInternalFrame {
             }
         });
 
+        lbl_avisoGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_avisoGrupo.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_avisoGrupo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_avisoGrupo.setText("*Campo obligatorio");
+
         lbl_turno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_turno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_turno.setText("Turno:");
@@ -140,11 +153,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
                 rbtn_vespertinoActionPerformed(evt);
             }
         });
-
-        lbl_avisoGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_avisoGrupo.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_avisoGrupo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_avisoGrupo.setText("*Campo obligatorio");
 
         lbl_avisoTurno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_avisoTurno.setForeground(new java.awt.Color(255, 0, 0));
@@ -267,31 +275,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_numeroLista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_numeroLista.setText("Número de lista");
 
-        btn_guardarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_guardarAlumno.setText("Guardar alumno");
-        btn_guardarAlumno.setEnabled(false);
-        btn_guardarAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardarAlumnoActionPerformed(evt);
-            }
-        });
-
-        btn_guardarGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_guardarGrupo.setText("Guardar grupo completo");
-        btn_guardarGrupo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardarGrupoActionPerformed(evt);
-            }
-        });
-
-        btn_cancelar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_cancelar.setText("Cancelar");
-        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarActionPerformed(evt);
-            }
-        });
-
         txt_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_correo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -306,14 +289,6 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_correo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_correo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_correo.setText("Correo electrónico (opcional)");
-
-        btn_editarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_editarAlumno.setText("Editar alumno");
-        btn_editarAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarAlumnoActionPerformed(evt);
-            }
-        });
 
         lbl_avisoApellidoPaterno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_avisoApellidoPaterno.setForeground(new java.awt.Color(255, 0, 0));
@@ -343,6 +318,39 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         lbl_avisoCorreo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_avisoCorreo.setForeground(new java.awt.Color(255, 0, 0));
         lbl_avisoCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        btn_guardarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_guardarAlumno.setText("Guardar alumno");
+        btn_guardarAlumno.setEnabled(false);
+        btn_guardarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarAlumnoActionPerformed(evt);
+            }
+        });
+
+        btn_guardarGrupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_guardarGrupo.setText("Guardar grupo completo");
+        btn_guardarGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarGrupoActionPerformed(evt);
+            }
+        });
+
+        btn_cancelar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
+
+        btn_editarAlumno.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_editarAlumno.setText("Editar alumno");
+        btn_editarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarAlumnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_alumnoLayout = new javax.swing.GroupLayout(pnl_alumno);
         pnl_alumno.setLayout(pnl_alumnoLayout);
@@ -778,6 +786,57 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         btn_guardarAlumno.setEnabled(false);
         btn_editarAlumno.setEnabled(true);
     }//GEN-LAST:event_tb_alumnosMouseClicked
+    
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
+    
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloCrearGrupo"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloCrearGrupo"));
+        Border pnl_Grupo=pnl_grupo.getBorder();//Obtiene el borde actual del panel pnl_grupo
+        TitledBorder ttl_grupo=(TitledBorder) pnl_Grupo;//crea un objeto titledBorder con los valores del titledborder pnl_Grupo
+        ttl_grupo.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_grupo
+        this.lbl_turno.setText(traduccion.getProperty("lbl_turno"));
+        this.lbl_avisoGrupo.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.rbtn_matutino.setText(traduccion.getProperty("rbtn_matutino"));
+        this.rbtn_vespertino.setText(traduccion.getProperty("rbtn_vespertino"));
+        this.lbl_avisoTurno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        Border pnl_Alumno=pnl_alumno.getBorder();//Obtiene el borde actual del panel pnl_alumno
+        TitledBorder ttl_alumno=(TitledBorder) pnl_Alumno;//crea un objeto titledBorder con los valores del titledborder pnl_Alumno
+        ttl_alumno.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_alumno
+        this.lbl_apellidoPaterno.setText(traduccion.getProperty("lbl_apellidoPaterno"));
+        this.lbl_avisoApellidoPaterno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_apellidoMaterno.setText(traduccion.getProperty("lbl_apellidoMaterno"));
+        this.lbl_avisoApellidoMaterno.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_nombre.setText(traduccion.getProperty("lbl_nombre"));
+        this.lbl_avisoNombre.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_boleta.setText(traduccion.getProperty("lbl_boleta"));
+        this.lbl_avisoBoleta.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));
+        this.lbl_numeroLista.setText(traduccion.getProperty("lbl_numeroLista"));
+        this.lbl_avisoNumeroLista.setText(traduccion.getProperty("lbl_campoObligatorio"));
+        this.lbl_correo.setText(traduccion.getProperty("lbl_Correo"));//verificar este campo a traducir
+        this.lbl_avisoCorreo.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));//investigar como hacer cambio dinámico de este campo
+        //investigar como traducir el modelo de la tabla tb_alumnos
+        this.btn_guardarAlumno.setText(traduccion.getProperty("btn_guardarAlumno"));
+        this.btn_guardarGrupo.setText(traduccion.getProperty("btn_guardarGrupo"));
+        this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
+        this.btn_cancelar.setText(traduccion.getProperty("btn_cancelar"));
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
     
     private void limpiarCampos(){
         txt_apellidoPaterno.setText("");
