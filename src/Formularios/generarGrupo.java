@@ -70,6 +70,7 @@ public class generarGrupo extends javax.swing.JInternalFrame {
         lbl_turnoEditable.setVisible(false);
         /*La pongo invisible para que no se vea que dice texto editable y solo se vea el grupo cuando se selecciona un grupo*/
         consultarGrupos();
+        this.lenguajeConfigurado();
     }
 void consultarAlumnos(){
         String consulta="SELECT codigo_grupo,turno,numero_lista,boleta,apellido_paterno,apellido_materno,nombre,correo FROM alumnos WHERE codigo_grupo = ?";
@@ -182,6 +183,9 @@ void consultarAlumnos(){
         }
         
     }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,18 +203,18 @@ void consultarAlumnos(){
         lbl_turnoEditable = new javax.swing.JLabel();
         pnl_alumnos = new javax.swing.JPanel();
         lbl_grupoCompleto = new javax.swing.JLabel();
-        lbl_excepciones = new javax.swing.JLabel();
-        lbl_asisten = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_grupo = new javax.swing.JTable();
         btn_agregar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_generar = new javax.swing.JButton();
-        btn_enviarResultado = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tb_grupo = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tb_asisten = new javax.swing.JTable();
+        lbl_excepciones = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tb_excepciones = new javax.swing.JTable();
+        lbl_asisten = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tb_asisten = new javax.swing.JTable();
+        btn_enviarResultado = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -219,7 +223,7 @@ void consultarAlumnos(){
         lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_titulo.setText("Generar alumnos");
 
-        pnl_grupos.setBorder(javax.swing.BorderFactory.createTitledBorder("Grupos"));
+        pnl_grupos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Grupos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
         lbl_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_grupo.setText("Grupo:");
@@ -265,51 +269,11 @@ void consultarAlumnos(){
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        pnl_alumnos.setBorder(javax.swing.BorderFactory.createTitledBorder("Alumnos"));
+        pnl_alumnos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alumnos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 12))); // NOI18N
 
         lbl_grupoCompleto.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         lbl_grupoCompleto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_grupoCompleto.setText("Grupo completo");
-
-        lbl_excepciones.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_excepciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_excepciones.setText("Excepciones");
-
-        lbl_asisten.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        lbl_asisten.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_asisten.setText("Deben asistir");
-
-        btn_agregar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_agregar.setText("Agregar ->");
-        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarActionPerformed(evt);
-            }
-        });
-
-        btn_eliminar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_eliminar.setText("Eliminar <-");
-        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarActionPerformed(evt);
-            }
-        });
-
-        btn_generar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_generar.setText("Generar");
-        btn_generar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_generarActionPerformed(evt);
-            }
-        });
-
-        btn_enviarResultado.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        btn_enviarResultado.setText("Enviar resultado");
-        btn_enviarResultado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_enviarResultadoActionPerformed(evt);
-            }
-        });
 
         tb_grupo.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         tb_grupo.setModel(new javax.swing.table.DefaultTableModel(
@@ -337,31 +301,33 @@ void consultarAlumnos(){
         });
         jScrollPane3.setViewportView(tb_grupo);
 
-        tb_asisten.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        tb_asisten.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Grupo", "Turno", "Número lista", "Boleta", "Apellido paterno", "Apellido materno", "Nombre", "Correo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btn_agregar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_agregar.setText("Agregar ->");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
             }
         });
-        jScrollPane6.setViewportView(tb_asisten);
+
+        btn_eliminar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_eliminar.setText("Eliminar <-");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        btn_generar.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_generar.setText("Generar");
+        btn_generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generarActionPerformed(evt);
+            }
+        });
+
+        lbl_excepciones.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_excepciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_excepciones.setText("Excepciones");
 
         tb_excepciones.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
         tb_excepciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -388,6 +354,44 @@ void consultarAlumnos(){
             }
         });
         jScrollPane7.setViewportView(tb_excepciones);
+
+        lbl_asisten.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        lbl_asisten.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_asisten.setText("Deben asistir");
+
+        tb_asisten.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        tb_asisten.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Grupo", "Turno", "Número lista", "Boleta", "Apellido paterno", "Apellido materno", "Nombre", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tb_asisten);
+
+        btn_enviarResultado.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
+        btn_enviarResultado.setText("Enviar resultado");
+        btn_enviarResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enviarResultadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_alumnosLayout = new javax.swing.GroupLayout(pnl_alumnos);
         pnl_alumnos.setLayout(pnl_alumnosLayout);
@@ -447,7 +451,7 @@ void consultarAlumnos(){
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_alumnosLayout.createSequentialGroup()
                         .addComponent(btn_enviarResultado)
                         .addGap(38, 38, 38)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
