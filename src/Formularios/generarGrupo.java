@@ -6,6 +6,8 @@ package Formularios;
 
 import clases.conectarBase;
 import java.awt.event.ItemEvent;
+import java.io.FileInputStream;
+import java.io.IOException;
 /*import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +19,11 @@ import java.util.Random;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;//libreria para arreglo dinámico
+import java.util.Properties;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import propiedades.idioma;
+
 
 /**
  *
@@ -184,7 +191,49 @@ void consultarAlumnos(){
         
     }
     
+    //<editor-fold defaultstate="collapsed" desc="Traducción del programa">
+    private void lenguajeConfigurado(){
+        Properties idioma=new Properties();//Crea un objeto de la clase Properties llamado idioma
+        try{
+            idioma.load(new FileInputStream("src\\propiedades\\configuracion.properties"));
+            //Carga el archivo configuracion.properties
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        //Obtener el lenguaje establecido
+        String lenguaje=idioma.getProperty("idioma");//Obtiene el idioma configurado por el usuario
+        cambiarIdioma(lenguaje);
+    }
     
+    private void cambiarIdioma(String nombreIdioma){
+        idioma traduccion=new idioma(nombreIdioma);
+        //crea un objeto llamado traduccion de la clase idioma del paquete propiedades
+        this.setTitle(traduccion.getProperty("tituloGenerarGrupo"));
+        this.lbl_titulo.setText(traduccion.getProperty("lbl_tituloGenerarGrupo"));
+        Border pnl_Grupos=pnl_grupos.getBorder();//Obtiene el borde actual del panel pnl_grupos
+        TitledBorder ttl_grupos=(TitledBorder) pnl_Grupos;//crea un objeto titledBorder con los valores del titledborder pnl_Grupos
+        ttl_grupos.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_grupos
+        this.lbl_grupo.setText(traduccion.getProperty("lbl_grupo"));
+        //investigar como traducir el texto de cmb_grupos
+        this.lbl_turno.setText(traduccion.getProperty("lbl_turno"));
+        this.lbl_turnoEditable.setText(traduccion.getProperty("lbl_turnoEditableM"));//investigar como hacer cambio dinámico de este campo
+        Border pnl_Alumnos=pnl_alumnos.getBorder();//Obtiene el borde actual del panel pnl_alumnos
+        TitledBorder ttl_alumnos=(TitledBorder) pnl_Alumnos;//crea un objeto titledBorder con los valores del titledborder pnl_Alumnos
+        ttl_alumnos.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_alumnos
+        this.lbl_grupoCompleto.setText(traduccion.getProperty("lbl_grupoCompleto"));
+        //investigat como traducir el modelo de la tabla tb_grupo
+        this.btn_agregar.setText(traduccion.getProperty("btn_agregar"));
+        this.btn_eliminar.setText(traduccion.getProperty("btn_eliminar"));
+        this.btn_generar.setText(traduccion.getProperty("btn_generar"));
+        this.lbl_excepciones.setText(traduccion.getProperty("lbl_excepciones"));
+        //investigar como traducir el modelo de la tabla tb_excepciones
+        this.lbl_asisten.setText(traduccion.getProperty("lbl_asisten"));
+        //investigar como traducir el modelo de la tabla tb_asisten
+        this.btn_enviarResultado.setText(traduccion.getProperty("btn_enviarResultado"));
+        //Se traduce toda la interfaz del programa
+    }
+    //</editor-fold>
+
     
     /**
      * This method is called from within the constructor to initialize the form.
