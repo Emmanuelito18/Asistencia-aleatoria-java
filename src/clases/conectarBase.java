@@ -4,6 +4,7 @@
  */
 package clases;
 
+import ds.desktop.notify.DesktopNotify;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -42,7 +43,9 @@ public class conectarBase {
             errorConexion=e.getMessage();
             codigoError=e.getErrorCode();
             estadoSQL=e.getSQLState();
-            JOptionPane.showMessageDialog(null,"Ha ocurrido un error: "+errorConexion+"\nEstado SQL: "+estadoSQL+"\nCódigo de error: "+codigoError);
+            String error=null;
+            error=errorConexion+"\nEstado SQL: "+estadoSQL+"\nCódigo de error: "+codigoError;
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error: "+error);
             e.printStackTrace();
             System.exit(1);
         }
