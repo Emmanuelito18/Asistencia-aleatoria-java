@@ -210,8 +210,8 @@ public class inicioSesion extends javax.swing.JFrame {
            if(registro.next()){
                if(registro.getString(8).matches(String.valueOf(psw_contraseña.getPassword()))){//el dos hace referencia a la segunda columna del registro de la base de datos
                    JOptionPane.showMessageDialog(rootPane,"Bienvendid@ "+registro.getString(4));
-                   principal p=new principal();
-                   p.setVisible(true);
+                   menu m=new menu();
+                   m.setVisible(true);
                    this.dispose();
                }
                else{
