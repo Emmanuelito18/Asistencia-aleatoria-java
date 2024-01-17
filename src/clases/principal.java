@@ -49,9 +49,11 @@ public class principal {
     }
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
     public static void main(String[] args){
         if(!verificarConexionInternet()){
             notificacionDSErrorConexion();
         }
     }
+    //</editor-fold>
 }
