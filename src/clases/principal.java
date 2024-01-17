@@ -50,9 +50,7 @@ public class principal {
     //</editor-fold>
     
     public static void main(String[] args){
-        if(verificarConexionInternet()){
-            System.out.println("Hay conexión a internet");// Esta linea será eliminada en un futuro
-        }else{
+        if(!verificarConexionInternet()){
             notificacionDSErrorConexion();
         }
     }
