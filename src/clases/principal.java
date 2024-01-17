@@ -10,7 +10,11 @@ import ds.desktop.notify.DesktopNotify;
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="Libreria para conexion a internet">
-
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 //</editor-fold>
 
 /**
@@ -34,11 +38,22 @@ public class principal {
     
     //<editor-fold defaultstate="collapsed" desc="Verificar notificacion">
     public static boolean verificarConexionInternet(){
-     return true;
+        try(Socket socket=new Socket()){
+            int timeout=2000;//tiempo de espera en milisegundos
+            SocketAddress socketAddress=new InetSocketAddress("www.google.com",80);
+            socket.connect(socketAddress,timeout);
+            return true;
+        }catch(IOException e){
+            return false;
+        }
     }
     //</editor-fold>
     
     public static void main(String[] args){
-        
+        if(verificarConexionInternet()){
+            System.out.println("Hay conexión a internet");// Esta linea será eliminada en un futuro
+        }else{
+            notificacionDSErrorConexion();
+        }
     }
 }
