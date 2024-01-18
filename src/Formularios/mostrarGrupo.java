@@ -48,7 +48,8 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         initComponents();
         btn_editar.setVisible(false);
         lbl_turnoEditable.setVisible(false);
-        consultarGrupos();        
+        consultarGrupos();
+        modelo=(DefaultTableModel) tb_alumnos.getModel();
         this.lenguajeConfigurado();
     }
 
@@ -61,7 +62,6 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
             rs=ps.executeQuery();
            
             Object[] alumno=new Object[8];
-            modelo=(DefaultTableModel) tb_alumnos.getModel();
             limpiarTabla();
             while(rs.next()){
                 alumno[0]=rs.getString(1);
