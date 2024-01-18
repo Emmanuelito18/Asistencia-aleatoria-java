@@ -43,11 +43,7 @@ public class editarGrupo extends javax.swing.JInternalFrame {
     int id=0;
     String identifica=null;
     
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    DefaultTableModel modelo=new DefaultTableModel();
     
     public editarGrupo() {
         initComponents();
