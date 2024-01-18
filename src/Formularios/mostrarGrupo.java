@@ -43,6 +43,7 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     
     
     DefaultTableModel modelo=new DefaultTableModel();
+    int numeroColumnas=modelo.getColumnCount();//Se utiliza para la traducción de la tabla
     
     public mostrarGrupo() {
         initComponents();
