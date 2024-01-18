@@ -54,24 +54,11 @@ public class generarGrupo extends javax.swing.JInternalFrame {
     int turnoEntero;
     int[] numerosDeListaSeleccionados= new int[15];
     
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    DefaultTableModel modelo=new DefaultTableModel();
     
-    DefaultTableModel modelo2=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    DefaultTableModel modelo2=new DefaultTableModel();
     
-    DefaultTableModel modelo3=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    
-    };
+    DefaultTableModel modelo3=new DefaultTableModel();
     public generarGrupo() {
         initComponents();
         lbl_turnoEditable.setVisible(false);
