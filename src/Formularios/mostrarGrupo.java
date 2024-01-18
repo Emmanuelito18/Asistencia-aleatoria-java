@@ -135,13 +135,16 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         Border pnl_Alumnos=pnl_alumnos.getBorder();//Obtiene el borde actual del panel pnl_Alumnos
         TitledBorder ttl_alumnos=(TitledBorder) pnl_Alumnos;//crea un objeto titledBorder con los valores del titledborder pnl_Alumnos
         ttl_alumnos.setTitle(traduccion.getProperty("pnl_alumnos"));//establece el titulo a ttl_alumnos
-        //investigar como traducer el modelo de la tabla tb_alumnos
-        for(int i=0;i<numeroColumnas;i++){//código de prueba para traducción de la tabla
-            String key=modelo.getColumnName(i);
-            String traducido=traduccion.getProperty(key);
-            tb_alumnos.getColumnModel().getColumn(i).setHeaderValue(traducido);
-        }
-        tb_alumnos.getTableHeader().repaint();
+        //traduccion del modelo de la tabla tb_alumnos
+        tb_alumnos.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_alumnos.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_alumnos.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_alumnos.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_alumnos.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_alumnos.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_alumnos.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_alumnos.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_alumnos.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.lbl_nota.setText(traduccion.getProperty("lbl_nota"));
         this.lbl_nota2.setText(traduccion.getProperty("lbl_nota2"));
         this.lbl_nota3.setText(traduccion.getProperty("lbl_nota3"));
