@@ -841,7 +841,16 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         this.lbl_avisoNumeroLista.setText(traduccion.getProperty("lbl_campoObligatorio"));
         this.lbl_correo.setText(traduccion.getProperty("lbl_Correo"));//verificar este campo a traducir
         this.lbl_avisoCorreo.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));//investigar como hacer cambio dinámico de este campo
-        //investigar como traducir el modelo de la tabla tb_alumnos
+        //traduccion del modelo de la tabla tb_alumnos
+        tb_alumnos.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_alumnos.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_alumnos.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_alumnos.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_alumnos.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_alumnos.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_alumnos.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_alumnos.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_alumnos.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.btn_guardarAlumno.setText(traduccion.getProperty("btn_guardarAlumno"));
         this.btn_guardarGrupo.setText(traduccion.getProperty("btn_guardarGrupo"));
         this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
