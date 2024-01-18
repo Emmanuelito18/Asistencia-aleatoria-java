@@ -41,7 +41,7 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         btn_editarAlumno.setEnabled(false);
         conexion=new conectarBase();
         
-        
+        modelo=(DefaultTableModel)tb_alumnos.getModel();//obtiene el modelo de la tabla para después poder guardar los alumnos en la tabla
         this.lenguajeConfigurado();//Lee el idioma del archivo properties y traduce el programa
     }
 
