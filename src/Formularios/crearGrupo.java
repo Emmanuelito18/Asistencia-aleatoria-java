@@ -33,26 +33,14 @@ public class crearGrupo extends javax.swing.JInternalFrame {
     String sTurno=null;
     String idc;
     int fila=0;
-   
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    
+    DefaultTableModel modelo=new DefaultTableModel();
     
     public crearGrupo() {
         initComponents();
         btn_editarAlumno.setEnabled(false);
         conexion=new conectarBase();
-        modelo.addColumn("Grupo");
-        modelo.addColumn("Turno");
-        modelo.addColumn("Número lista");
-        modelo.addColumn("Boleta");
-        modelo.addColumn("Apellido paterno");
-        modelo.addColumn("Apellido materno");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Correo");
-        this.tb_alumnos.setModel(modelo);
+        
         
         this.lenguajeConfigurado();//Lee el idioma del archivo properties y traduce el programa
     }
@@ -456,13 +444,37 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         );
 
         tb_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        tb_alumnos.setModel(modelo);
+        tb_alumnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Grupo", "Turno", "Número lista", "Boleta", "Apellido paterno", "Apellido materno", "Nombre", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_alumnos.setColumnSelectionAllowed(true);
         tb_alumnos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_alumnosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tb_alumnos);
+        tb_alumnos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
