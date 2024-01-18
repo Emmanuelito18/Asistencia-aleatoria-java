@@ -42,11 +42,11 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     int posCMB=0;
     
     
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    DefaultTableModel modelo=new DefaultTableModel();//{
+//    public boolean isCellEditable(int row,int column){
+//        return false;
+//    }
+//    };
     
     public mostrarGrupo() {
         initComponents();
