@@ -208,14 +208,41 @@ void consultarAlumnos(){
         TitledBorder ttl_alumnos=(TitledBorder) pnl_Alumnos;//crea un objeto titledBorder con los valores del titledborder pnl_Alumnos
         ttl_alumnos.setTitle(traduccion.getProperty("pnl_grupoTitulo"));//establece el titulo a ttl_alumnos
         this.lbl_grupoCompleto.setText(traduccion.getProperty("lbl_grupoCompleto"));
-        //investigat como traducir el modelo de la tabla tb_grupo
+        //traduccion del modelo de la tabla tb_grupo
+        tb_grupo.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_grupo.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_grupo.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_grupo.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_grupo.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_grupo.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_grupo.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_grupo.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_grupo.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.btn_agregar.setText(traduccion.getProperty("btn_agregar"));
         this.btn_eliminar.setText(traduccion.getProperty("btn_eliminar"));
         this.btn_generar.setText(traduccion.getProperty("btn_generar"));
         this.lbl_excepciones.setText(traduccion.getProperty("lbl_excepciones"));
         //investigar como traducir el modelo de la tabla tb_excepciones
+        tb_excepciones.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_excepciones.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_excepciones.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_excepciones.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_excepciones.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_excepciones.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_excepciones.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_excepciones.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_excepciones.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.lbl_asisten.setText(traduccion.getProperty("lbl_asisten"));
         //investigar como traducir el modelo de la tabla tb_asisten
+        tb_asisten.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_asisten.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_asisten.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_asisten.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_asisten.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_asisten.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_asisten.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_asisten.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_asisten.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.btn_enviarResultado.setText(traduccion.getProperty("btn_enviarResultado"));
         //Se traduce toda la interfaz del programa
     }
