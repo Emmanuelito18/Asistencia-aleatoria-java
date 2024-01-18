@@ -137,7 +137,17 @@ public class editarGrupo extends javax.swing.JInternalFrame {
         this.lbl_turno.setText(traduccion.getProperty("lbl_turno"));
         this.lbl_turnoEditable.setText(traduccion.getProperty("lbl_turnoEditableM"));//investigar como hacer cambio dinámico de este campo
         this.lbl_alumnos.setText(traduccion.getProperty("lbl_alumnos"));
-        //investigar como traducir el modelo de tb_alumnos
+        //traduccion del modelo de la tabla tb_alumnos
+        tb_alumnos.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("ID"));
+        tb_alumnos.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_alumnos.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("turno"));
+        tb_alumnos.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_alumnos.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_alumnos.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_alumnos.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_alumnos.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_alumnos.getColumnModel().getColumn(8).setHeaderValue(traduccion.getProperty("correo"));
+        tb_alumnos.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
         Border pnl_Alumno=pnl_alumno.getBorder();//Obtiene el borde actual del panel pnl_alumno
         TitledBorder ttl_alumno=(TitledBorder) pnl_Alumno;//crea un objeto titledBorder con los valores del titledborder pnl_Alumno
