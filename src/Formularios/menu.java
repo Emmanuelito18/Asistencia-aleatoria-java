@@ -24,14 +24,14 @@ import propiedades.idioma;
  *
  * @author Emmanuelito18
  */
-public class principal extends javax.swing.JFrame {
+public class menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form principal
+     * Creates new form menu
      */
     private Properties prop;
     
-    public principal() {
+    public menu() {
         initComponents();
         this.setLocationRelativeTo(null);
         prop=new Properties();
@@ -89,8 +89,6 @@ public class principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 1366, 728));
-        setMaximumSize(new java.awt.Dimension(1366, 728));
-        setPreferredSize(new java.awt.Dimension(1366, 728));
 
         lbl_titulo.setFont(new java.awt.Font("Lucida Handwriting", 0, 18)); // NOI18N
         lbl_titulo.setText("Asistencia aleatoria");
@@ -548,20 +546,21 @@ public class principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new principal().setVisible(true);
+                new menu().setVisible(true);
             }
         });
     }
@@ -602,13 +601,13 @@ public class principal extends javax.swing.JFrame {
                 prop.setProperty("lookAndFeel",lookAndFeel);
                 prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             }catch(Exception e){
             e.printStackTrace();
             }
@@ -630,13 +629,13 @@ public class principal extends javax.swing.JFrame {
                 prop.setProperty("lookAndFeel",lookAndFeel);
                 prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InstantiationException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IllegalAccessException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -647,13 +646,13 @@ public class principal extends javax.swing.JFrame {
                 prop.setProperty("lookAndFeel",lookAndFeel);
                 prop.store(new FileOutputStream("src\\propiedades\\configuracion.properties"),null);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(menu.class.getName()).log(Level.SEVERE, null, ex);
             }catch(Exception e){
                 e.printStackTrace();
             }
