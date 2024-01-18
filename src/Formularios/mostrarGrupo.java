@@ -42,17 +42,15 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
     int posCMB=0;
     
     
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    DefaultTableModel modelo=new DefaultTableModel();
+    int numeroColumnas=modelo.getColumnCount();//Se utiliza para la traducción de la tabla
     
     public mostrarGrupo() {
         initComponents();
         btn_editar.setVisible(false);
         lbl_turnoEditable.setVisible(false);
-        consultarGrupos();        
+        consultarGrupos();
+        modelo=(DefaultTableModel) tb_alumnos.getModel();
         this.lenguajeConfigurado();
     }
 
@@ -65,7 +63,6 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
             rs=ps.executeQuery();
            
             Object[] alumno=new Object[8];
-            modelo=(DefaultTableModel) tb_alumnos.getModel();
             limpiarTabla();
             while(rs.next()){
                 alumno[0]=rs.getString(1);
@@ -138,7 +135,16 @@ public class mostrarGrupo extends javax.swing.JInternalFrame {
         Border pnl_Alumnos=pnl_alumnos.getBorder();//Obtiene el borde actual del panel pnl_Alumnos
         TitledBorder ttl_alumnos=(TitledBorder) pnl_Alumnos;//crea un objeto titledBorder con los valores del titledborder pnl_Alumnos
         ttl_alumnos.setTitle(traduccion.getProperty("pnl_alumnos"));//establece el titulo a ttl_alumnos
-        //investigar como traducer el modelo de la tabla tb_alumnos
+        //traduccion del modelo de la tabla tb_alumnos
+        tb_alumnos.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_alumnos.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_alumnos.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_alumnos.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_alumnos.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_alumnos.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_alumnos.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_alumnos.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_alumnos.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.lbl_nota.setText(traduccion.getProperty("lbl_nota"));
         this.lbl_nota2.setText(traduccion.getProperty("lbl_nota2"));
         this.lbl_nota3.setText(traduccion.getProperty("lbl_nota3"));

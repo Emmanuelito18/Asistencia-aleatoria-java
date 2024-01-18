@@ -33,27 +33,15 @@ public class crearGrupo extends javax.swing.JInternalFrame {
     String sTurno=null;
     String idc;
     int fila=0;
-   
-    DefaultTableModel modelo=new DefaultTableModel(){
-    public boolean isCellEditable(int row,int column){
-        return false;
-    }
-    };
+    
+    DefaultTableModel modelo=new DefaultTableModel();
     
     public crearGrupo() {
         initComponents();
         btn_editarAlumno.setEnabled(false);
         conexion=new conectarBase();
-        modelo.addColumn("Grupo");
-        modelo.addColumn("Turno");
-        modelo.addColumn("Número lista");
-        modelo.addColumn("Boleta");
-        modelo.addColumn("Apellido paterno");
-        modelo.addColumn("Apellido materno");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Correo");
-        this.tb_alumnos.setModel(modelo);
         
+        modelo=(DefaultTableModel)tb_alumnos.getModel();//obtiene el modelo de la tabla para después poder guardar los alumnos en la tabla
         this.lenguajeConfigurado();//Lee el idioma del archivo properties y traduce el programa
     }
 
@@ -456,13 +444,37 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         );
 
         tb_alumnos.setFont(new java.awt.Font("Lucida Handwriting", 0, 12)); // NOI18N
-        tb_alumnos.setModel(modelo);
+        tb_alumnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Grupo", "Turno", "Número lista", "Boleta", "Apellido paterno", "Apellido materno", "Nombre", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_alumnos.setColumnSelectionAllowed(true);
         tb_alumnos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_alumnosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tb_alumnos);
+        tb_alumnos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -829,7 +841,16 @@ public class crearGrupo extends javax.swing.JInternalFrame {
         this.lbl_avisoNumeroLista.setText(traduccion.getProperty("lbl_campoObligatorio"));
         this.lbl_correo.setText(traduccion.getProperty("lbl_Correo"));//verificar este campo a traducir
         this.lbl_avisoCorreo.setText(traduccion.getProperty("lbl_avisoCampoObligatorio"));//investigar como hacer cambio dinámico de este campo
-        //investigar como traducir el modelo de la tabla tb_alumnos
+        //traduccion del modelo de la tabla tb_alumnos
+        tb_alumnos.getColumnModel().getColumn(0).setHeaderValue(traduccion.getProperty("grupo"));
+        tb_alumnos.getColumnModel().getColumn(1).setHeaderValue(traduccion.getProperty("turno"));
+        tb_alumnos.getColumnModel().getColumn(2).setHeaderValue(traduccion.getProperty("numeroLista"));
+        tb_alumnos.getColumnModel().getColumn(3).setHeaderValue(traduccion.getProperty("boleta"));
+        tb_alumnos.getColumnModel().getColumn(4).setHeaderValue(traduccion.getProperty("apellidoPaterno"));
+        tb_alumnos.getColumnModel().getColumn(5).setHeaderValue(traduccion.getProperty("apellidoMaterno"));
+        tb_alumnos.getColumnModel().getColumn(6).setHeaderValue(traduccion.getProperty("nombre"));
+        tb_alumnos.getColumnModel().getColumn(7).setHeaderValue(traduccion.getProperty("correo"));
+        tb_alumnos.getTableHeader().repaint();//código de prueba para cuando se pase a utilizar la clase principal
         this.btn_guardarAlumno.setText(traduccion.getProperty("btn_guardarAlumno"));
         this.btn_guardarGrupo.setText(traduccion.getProperty("btn_guardarGrupo"));
         this.btn_editarAlumno.setText(traduccion.getProperty("btn_editarAlumno"));
