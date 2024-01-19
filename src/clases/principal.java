@@ -9,6 +9,10 @@ package clases;
  * @author Emmanuel
  */
 public class principal {
+    /*Aquí estarán todos los métodos que utilizarán las demás
+    clases del programa, con el fin de optimizar todo el programa y
+    hacerlo máa legible y fácil de entender el código del mismo
+    */
     public static void main(String[] args){
         
     }
