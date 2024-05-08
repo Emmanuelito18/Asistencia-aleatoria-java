@@ -26,8 +26,14 @@ import javax.swing.SwingUtilities;
 import propiedades.idioma;//Hace las traducciones del programa
 
 /**
- *
+ *Asistencia aleatoria, un programa que sirve para decidir de forma aleatoria
+ * que alumnos tienen que ir o no a clase, este programa surgio en base a una 
+ * necesidad durante el final de la pandemia de COVID-19 en ESIME CULHUACÁN
  * @author Emmanuelito18
+ * @version 0.1 pre-alpha
+ * @see para más información sobre como hacer documentación correctamente vea {@link<a href="https://youtu.be/1n28VRCzJho?si=XsS8mPbWsenczusr">DOCUMENTAR MÉTODOS en Java ☕ con JAVADOC</a>}
+ * @see para saber como hacer documentación ver {@link <a href="https://youtu.be/GDX0oa0voec?si=3EZT8vdPo2Pnn3tS">Programación Java. Documenta tu código como un profesional con Javadoc</a>}
+ * @see para información más detallada sobre coumentación en javadoc leer {@link <a href="https://sl.bing.net/boyOgJOk5lI">Etiquetas Javadoc en Java Bing Copilot</a>}
  */
 public class inicioSesion extends javax.swing.JFrame {
 
@@ -228,7 +234,7 @@ public class inicioSesion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta");
     }
     }//GEN-LAST:event_btn_iniciarActionPerformed
-
+    
     private void btn_recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperarActionPerformed
         // TODO add your handling code here:
         recuperarCuenta r=new recuperarCuenta();
@@ -389,8 +395,8 @@ public class inicioSesion extends javax.swing.JFrame {
                                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
-                    }
-                }//</editor-fold>              
+                    } 
+                }//</editor-fold>             
                 
                 inicioSesion inicio=new inicioSesion();
                 inicio.setVisible(true);
