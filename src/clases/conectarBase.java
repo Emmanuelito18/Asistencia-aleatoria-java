@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
- *
+ * Clase que sirve para hacer la conexión con la base de datos MySQL
  * @author Emmanuelito18
  */
 public class conectarBase {

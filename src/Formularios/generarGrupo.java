@@ -26,7 +26,7 @@ import propiedades.idioma;
 
 
 /**
- *
+ * Ventana que sirve para escoger de forma aleatoria os alumnos que tienen que ir a clases de cada grupo
  * @author Emmanuelito18
  */
 public class generarGrupo extends javax.swing.JInternalFrame {

@@ -23,7 +23,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import propiedades.idioma;
 /**
- *
+ * Ventana que sirve para que el usuario modifique grupos ya existentes
  * @author Emmanuelito18
  */
 public class editarGrupo extends javax.swing.JInternalFrame {

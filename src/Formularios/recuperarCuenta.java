@@ -29,7 +29,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.*;*/
 /**
- *
+ * Ventana que srve para recuperar la cuenta de usuario
  * @author Emmanuelito18
  */
 public class recuperarCuenta extends javax.swing.JFrame {

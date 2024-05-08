@@ -5,7 +5,7 @@
 package Formularios;
 
 /**
- *
+ * Ventana que sirve para crear grupos nuevos
  * @author Emmanuelito18
  */
 import clases.conectarBase;

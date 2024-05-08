@@ -21,7 +21,7 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 import propiedades.idioma;
 
 /**
- *
+ * Ventana que sirve como menú/ventana pricipal para el programa
  * @author Emmanuelito18
  */
 public class menu extends javax.swing.JFrame {

@@ -24,7 +24,7 @@ import javax.swing.border.TitledBorder;
 import propiedades.idioma;
 
 /**
- *
+ * Ventana que sirve para mostrar os alumnos para los grupos ya existentes
  * @author Emmanuelito18
  */
 public class mostrarGrupo extends javax.swing.JInternalFrame {
