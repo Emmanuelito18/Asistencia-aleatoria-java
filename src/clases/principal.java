@@ -5,8 +5,8 @@
 package clases;
 
 /**
- *
- * @author Emmanuel
+ * Esta clase funciona como la clase principal de todo el programa
+ * @author Emmanuelito18
  */
 public class principal {
     /*Aquí estarán todos los métodos que utilizarán las demás

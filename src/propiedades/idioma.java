@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- *
- * @author holas
+ * Esta clase se utiiza para cargar as propiedades de los distintos archivos .properties de los distintos idiomas
+ * @author Emmanuelito18
  */
 public class idioma extends Properties{
     private static final long serialVersionUID=1L;

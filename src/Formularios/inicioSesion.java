@@ -31,9 +31,12 @@ import propiedades.idioma;//Hace las traducciones del programa
  * necesidad durante el final de la pandemia de COVID-19 en ESIME CULHUACÁN
  * @author Emmanuelito18
  * @version 0.1 pre-alpha
- * @see para más información sobre como hacer documentación correctamente vea {@link<a href="https://youtu.be/1n28VRCzJho?si=XsS8mPbWsenczusr">DOCUMENTAR MÉTODOS en Java ☕ con JAVADOC</a>}
- * @see para saber como hacer documentación ver {@link <a href="https://youtu.be/GDX0oa0voec?si=3EZT8vdPo2Pnn3tS">Programación Java. Documenta tu código como un profesional con Javadoc</a>}
- * @see para información más detallada sobre coumentación en javadoc leer {@link <a href="https://sl.bing.net/boyOgJOk5lI">Etiquetas Javadoc en Java Bing Copilot</a>}
+ * @see <a href="https://sl.bing.net/boyOgJOk5lI" target="_blank">Etiquetas Javadoc en Java (Bing Copilot)</a> :leer para información más detallada sobre documentación 
+ * en javadoc.
+ * @see <a href="https://youtu.be/1n28VRCzJho%3Fsi%3DXsS8mPbWsenczusr" target="_blank">DOCUMENTAR MÉTODOS en Java con JAVADOC (youtube)</a> :ver video para mas información sobre como
+ * hacer documentación correctamente.
+ * @see <a href="https://youtu.be/GDX0oa0voec%3Fsi%3D3EZT8vdPo2Pnn3tS" target="_blank">Programación Java. Documenta tu código como un profesional con Javadoc (youtube)</a> :ver video para saber cómo
+ * hacer documentación.
  */
 public class inicioSesion extends javax.swing.JFrame {
 
