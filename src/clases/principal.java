@@ -4,6 +4,7 @@
  */
 package clases;
 
+import Formularios.inicioSesion;
 /**
  * Esta clase funciona como la clase principal de todo el programa
  * @author Emmanuelito18
@@ -14,6 +15,9 @@ public class principal {
     hacerlo máa legible y fácil de entender el código del mismo
     */
     public static void main(String[] args){
-        
+        inicioSesion inicio=new inicioSesion();
+        inicio.setVisible(true);
+        inicio.setLocationRelativeTo(null);
+        inicio.setResizable(false);
     }
 }
