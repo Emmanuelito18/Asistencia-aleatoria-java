@@ -28,7 +28,7 @@ public class principal {
     /*Aquí estarán todos los métodos que utilizarán las demás
     clases del programa, con el fin de optimizar todo el programa y
     hacerlo máa legible y fácil de entender el código del mismo programa
-   Este projecto aún es trabajo en progreso 
+    Este proyecto aún es trabajo en progreso 
     */
     
     /**
