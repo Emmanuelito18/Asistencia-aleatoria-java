@@ -559,6 +559,11 @@ public class registrarCuenta extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
 
+    /**
+    * Reparar funcionamiento para obtener y comparar contraseñas en java
+    * con MySQL
+    * @see <a href="https://chat.openai.com/share/d2474181-6cc1-4796-a398-ed4e31315a2a">Cómo hacer comparación de contraseñas de forma segura</a> leer para saber el cómo comparar contraseñas de forma segura
+    */
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         // TODO add your handling code here:
         String fecha=((JTextField)Calendario.getDateEditor().getUiComponent()).getText();
