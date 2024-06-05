@@ -1,7 +1,12 @@
 package Formularios;
 
-import java.awt.Color;
-import java.awt.Point;
+//<editor-fold defaultstate="collapsed" desc="Librerias necesarias para la splash screen">
+import clases.poneImagenes;
+import java.awt.Color;//para crear colores personalizados
+import java.awt.Point;//para obtener coordenadas en el programa
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+//</editor-fold>
 
 /**
  * Esta clase muestra un slpash screen 
@@ -20,7 +25,11 @@ public class splashScreen extends javax.swing.JFrame {
         setBackground(transparente);
         
         //<editor-fold defaultstate="collapsed" desc="Cambia el fondo del panel pnlFondo">
-        
+        poneImagenes fondo=new poneImagenes(pnlFondo, "/imagenes/Logotipo.png");
+        pnlFondo.add(fondo).repaint();
+        pnlFondo.setOpaque(false);
+        pnlFondo.setBorder(null);
+        pnlFondo.setBackground(transparente);
         //</editor-fold>
     }
 
@@ -39,11 +48,25 @@ public class splashScreen extends javax.swing.JFrame {
         setTitle("Splash screen");
         setUndecorated(true);
 
+        pnlFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnlFondoMouseDragged(evt);
+            }
+        });
+        pnlFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlFondoMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlFondoMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 349, Short.MAX_VALUE)
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -54,7 +77,7 @@ public class splashScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,6 +86,49 @@ public class splashScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pnlFondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlFondoMouseClicked
+
+    /**
+     * Se utiliza para obtener el punto del JFrame en la que se hace el click
+     * @param evt 
+     */
+    private void pnlFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMousePressed
+        punto=evt.getPoint();//obtiene la posicion del mouse
+        getComponentAt(punto);//obtine el componene en la posición punto (posición del mouse)
+    }//GEN-LAST:event_pnlFondoMousePressed
+
+    /**
+     * Se utiliza para saber la posición del mouse mientras se mueve teniendo el click izquierdo presionado
+     * @param evt 
+     */
+    private void pnlFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMouseDragged
+        // <editor-fold defaultstate="collapsed" desc="Obtiene la posición actual en donde se encuentra el cursor">
+        int ActualX=this.getLocation().x;
+        int ActualY=this.getLocation().y;
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="Calcula el movimieno del mouse">
+        int movimientoX=(ActualX+evt.getX())-(ActualX+punto.x);
+        int movimientoY=(ActualY+evt.getY())-(ActualY+punto.y);
+        /*
+        ActualX y ActualY sirven para obtner las coordenadas de la ventana o componente
+        evt.getX() y evt.getY() sirven para obener las coordenadas de la posición del mouse
+        punto.x y punto.y son las coordenas del mouse almacenadas previamente al hacer click
+        Al restarse estas cantidades se obtiene el movimiento en cada eje
+        */
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="Calcula la nueva ubicación del JFrame">
+        int x=ActualX+movimientoX;
+        int y=ActualY+movimientoY;
+        //calcula la nueva posición sumando la posición actual de cada eje con el movimiento en cada eje
+        // </editor-fold>
+        
+        this.setLocation(x,y);//establece la ubicación del JFrame según las coordenadas calculadas
+    }//GEN-LAST:event_pnlFondoMouseDragged
 
     /**
      * @param args the command line arguments
