@@ -1,20 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
 
+import java.awt.Color;
+import java.awt.Point;
+
 /**
- *
+ * Esta clase muestra un slpash screen 
  * @author Emmanuelito18
  */
 public class splashScreen extends javax.swing.JFrame {
-
+    private Color transparente;//Crea un color llamado transparente
+    private Point punto;//se utliza para obtener el punto en que se está haciendo click y en donde está el mouse
     /**
      * Creates new form splashScreen
      */
     public splashScreen() {
         initComponents();
+        transparente=new Color(0,0,0,0);//Establece el color transparente al objeto transparente de la clase Color
+        setLocationRelativeTo(null);
+        setBackground(transparente);
+        
+        //<editor-fold defaultstate="collapsed" desc="Cambia el fondo del panel pnlFondo">
+        
+        //</editor-fold>
     }
 
     /**
@@ -61,28 +68,6 @@ public class splashScreen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(splashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(splashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(splashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(splashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
