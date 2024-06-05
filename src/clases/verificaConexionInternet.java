@@ -14,5 +14,7 @@ import java.net.SocketAddress;
  * @see <a href="">Web sockets</a>
  */
 public class verificaConexionInternet {
-    
+    public static boolean verificarConexionInternet(){
+        
+    }
 }
