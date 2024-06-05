@@ -29,6 +29,7 @@ public class splashScreen extends javax.swing.JFrame {
         pnlFondo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Splash screen");
         setUndecorated(true);
 
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
