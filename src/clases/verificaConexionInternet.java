@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package clases;
 
 /**
+ * Esta clase se encarga de verificar si el usuario tiene conexión a internet o no
  * @author Emmanuelito18
+ * @see <a href="">Web sockets</a>
  */
 public class verificaConexionInternet {
-
+    
 }
