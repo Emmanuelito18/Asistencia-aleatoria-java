@@ -14,7 +14,14 @@ import java.net.SocketAddress;
  * @see <a href="">Web sockets</a>
  */
 public class verificaConexionInternet {
-    public static boolean verificarConexionInternet(){
-        
+    public static boolean verificarConexionGoogle(){
+        try(Socket socket=new Socket()){
+            int tiempoLimite=2000;//tiempo de espera en milisegundos
+            SocketAddress socketGoogle=new InetSocketAddress("www.google.com",80);
+            socket.connect(socketGoogle, tiempoLimite);
+            return true;
+        }catch(IOException error){
+            return false;
+        }
     }
 }
