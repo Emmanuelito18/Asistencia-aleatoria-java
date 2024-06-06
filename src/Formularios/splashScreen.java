@@ -2,6 +2,7 @@ package Formularios;
 
 //<editor-fold defaultstate="collapsed" desc="Librerias necesarias para la splash screen">
 import clases.poneImagenes;
+import clases.verificaConexionInternet;
 import java.awt.Color;//para crear colores personalizados
 import java.awt.Point;//para obtener coordenadas en el programa
 import java.awt.event.ActionEvent;
@@ -25,11 +26,11 @@ public class splashScreen extends javax.swing.JFrame {
         setBackground(transparente);
         
         //<editor-fold defaultstate="collapsed" desc="Cambia el fondo del panel pnlFondo">
-        poneImagenes fondo=new poneImagenes(pnlFondo, "/imagenes/Logotipo.png");
-        pnlFondo.add(fondo).repaint();
-        pnlFondo.setOpaque(false);
-        pnlFondo.setBorder(null);
-        pnlFondo.setBackground(transparente);
+        poneImagenes fondo=new poneImagenes(pnl_Fondo, "/imagenes/shape2.png");
+        pnl_Fondo.add(fondo).repaint();
+        pnl_Fondo.setOpaque(false);
+        pnl_Fondo.setBorder(null);
+        pnl_Fondo.setBackground(transparente);
         //</editor-fold>
     }
 
@@ -42,69 +43,76 @@ public class splashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlFondo = new javax.swing.JPanel();
+        pnl_Fondo = new javax.swing.JPanel();
+        lbl_logotipo = new javax.swing.JLabel();
+        pb_barraCarga = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Splash screen");
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlFondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        pnl_Fondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                pnlFondoMouseDragged(evt);
+                pnl_FondoMouseDragged(evt);
             }
         });
-        pnlFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnl_Fondo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlFondoMouseClicked(evt);
+                pnl_FondoMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                pnlFondoMousePressed(evt);
+                pnl_FondoMousePressed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
-        pnlFondo.setLayout(pnlFondoLayout);
-        pnlFondoLayout.setHorizontalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+        lbl_logotipo.setFont(new java.awt.Font("Lucida Calligraphy", 0, 36)); // NOI18N
+        lbl_logotipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_logotipo.setText("Asistencia aleatoria");
+
+        javax.swing.GroupLayout pnl_FondoLayout = new javax.swing.GroupLayout(pnl_Fondo);
+        pnl_Fondo.setLayout(pnl_FondoLayout);
+        pnl_FondoLayout.setHorizontalGroup(
+            pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_logotipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnl_FondoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(pb_barraCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlFondoLayout.setVerticalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+        pnl_FondoLayout.setVerticalGroup(
+            pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_FondoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(lbl_logotipo)
+                .addGap(104, 104, 104)
+                .addComponent(pb_barraCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(pnl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnlFondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMouseClicked
+    private void pnl_FondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_FondoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnlFondoMouseClicked
+    }//GEN-LAST:event_pnl_FondoMouseClicked
 
     /**
      * Se utiliza para obtener el punto del JFrame en la que se hace el click
      * @param evt 
      */
-    private void pnlFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMousePressed
+    private void pnl_FondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_FondoMousePressed
         punto=evt.getPoint();//obtiene la posicion del mouse
         getComponentAt(punto);//obtine el componene en la posición punto (posición del mouse)
-    }//GEN-LAST:event_pnlFondoMousePressed
+    }//GEN-LAST:event_pnl_FondoMousePressed
 
     /**
      * Se utiliza para saber la posición del mouse mientras se mueve teniendo el click izquierdo presionado
      * @param evt 
      */
-    private void pnlFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFondoMouseDragged
+    private void pnl_FondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_FondoMouseDragged
         // <editor-fold defaultstate="collapsed" desc="Obtiene la posición actual en donde se encuentra el cursor">
         int ActualX=this.getLocation().x;
         int ActualY=this.getLocation().y;
@@ -128,13 +136,39 @@ public class splashScreen extends javax.swing.JFrame {
         // </editor-fold>
         
         this.setLocation(x,y);//establece la ubicación del JFrame según las coordenadas calculadas
-    }//GEN-LAST:event_pnlFondoMouseDragged
+    }//GEN-LAST:event_pnl_FondoMouseDragged
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        
+        if(!verificaConexionInternet.verificarConexionGoogle()){
+            /*
+            1. Solicitar inicio de sesión del usuario
+            2. Verificar si la base de datos local está vacia
+            3. Si está vacia hacer la conexion a la base de datos MySQL y llenar la base de datos local
+            4. Verificar la última actualizacion a la base de datos MySQL, tiene que ser menor a una semana
+            si es mayor a una semana
+            5. Si la última conexion es mayor a una semana, obtener todos los datos de la base de datos y meterlos en la base de daos locar
+            6. Cerrar conexión a la base de datos MySQL
+            7. Iniciar programa
+            8. Utilizar la base de datos local
+            */
+        }else{
+            /*
+            1. Indicar al usuario que no posee conexion a internet
+            2. Solicitar inicio de sesión del usuario
+            3. Verificar si la base local está vacia
+            4. Si está vacia, recordarle al usuario que necesita revisar la conexion a internet
+            5. Verificar la última conexion a la base de datos MySQL
+            6. Si es mayor a una semana, recordarle al usuario que necesita revisar la conexion
+            a internet para actualizar la base de datos local
+            7. Iniciar programa
+            8. Utilizar base de datos local
+            */
+        }
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -144,6 +178,8 @@ public class splashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel pnlFondo;
+    private javax.swing.JLabel lbl_logotipo;
+    private javax.swing.JProgressBar pb_barraCarga;
+    private javax.swing.JPanel pnl_Fondo;
     // End of variables declaration//GEN-END:variables
 }
