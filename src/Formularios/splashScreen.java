@@ -155,6 +155,7 @@ public class splashScreen extends javax.swing.JFrame {
             7. Iniciar programa
             8. Utilizar la base de datos local
             */
+            System.out.println("Hay conexion a internet");
         }else{
             /*
             1. Indicar al usuario que no posee conexion a internet
@@ -167,6 +168,7 @@ public class splashScreen extends javax.swing.JFrame {
             7. Iniciar programa
             8. Utilizar base de datos local
             */
+            System.out.println("Error de conexión\nNo se ha podido conectar a internet, por favor verifique su conexión a internet");
         }
         
         /* Create and display the form */
