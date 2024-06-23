@@ -11,6 +11,7 @@ import java.awt.TrayIcon;
 /**
  * Esta clase se encarga de manejar las notificaciones de java
  * @author Emmanuelito18
+ * @see <a href="">Documentacion de notificaciones de java</a>
  */
 public class notificacionesJava {
     //<editor-fold defaultstate="collapsed" desc="Notificacion java">
