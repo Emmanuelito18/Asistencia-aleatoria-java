@@ -21,6 +21,10 @@ public class notificacionesDS {
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.FAIL);
     }
     
+    public void notificacionFalloTiempo(String titulo,String mensaje,long tiempo){
+        DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.FAIL, tiempo);
+    }
+    
     public void notificacionExito(String titulo,String mensaje){
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.SUCCESS);
     }
@@ -35,5 +39,5 @@ public class notificacionesDS {
     
     public void notificacionAyuda(String titulo,String mensaje){
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.HELP);
-    }
+    } 
 }
