@@ -28,10 +28,6 @@ public class principal {
     }
     //</editor-fold>
     
-    //<editor-fold defaultstate="collapsed" desc="Notificaciones RS">
-    
-    //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Notificaciones Java">
     
     //</editor-fold>
@@ -51,8 +47,12 @@ public class principal {
     
     //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
     public static void main(String[] args){
-        if(!verificarConexionInternet()){
-            notificacionDSErrorConexion();
+        if(verificarConexionInternet()){//Si no hay conexión a internet
+            notificacionesDS notificacion=new notificacionesDS();
+            notificacion.notificacionFalloTiempo("Error de conexión", "No se ha podido conectar a internet, por favor"
+                    + " verifique su conexión a intenet",10000L);
+        }else{//Si si hay conexión a internet
+            
         }
     }
     //</editor-fold>
