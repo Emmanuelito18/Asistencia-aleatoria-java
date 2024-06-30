@@ -29,6 +29,10 @@ public class notificacionesDS {
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.SUCCESS);
     }
     
+    public void notificacionExitoTiempo(String titulo,String mensaje,long tiempo){
+        DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.SUCCESS, tiempo);
+    }
+    
     public void notificacionAdvertencia(String titulo,String mensaje){
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.WARNING);
     }
