@@ -13,6 +13,10 @@ public class notificacionesDS {
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.ERROR);
     }
     
+    public void notificacionErrorTiempo(String titulo,String mensaje,long tiempo){
+        DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.ERROR, tiempo);
+    }
+    
     public void notificacionFallo(String titulo,String mensaje){
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.FAIL);
     }
