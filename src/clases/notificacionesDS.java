@@ -45,6 +45,10 @@ public class notificacionesDS {
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.INFORMATION);
     }
     
+    public void notificacionInformacionTiempo(String titulo,String mensaje,long tiempo){
+        DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.INFORMATION, tiempo);
+    }
+    
     public void notificacionAyuda(String titulo,String mensaje){
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.HELP);
     } 
