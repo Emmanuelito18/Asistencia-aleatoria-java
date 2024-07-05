@@ -48,9 +48,13 @@ public class principal {
     //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
     public static void main(String[] args){
         if(verificarConexionInternet()){//Si no hay conexión a internet
+            /*anadir código para que muestre la notificación un tipo de notificación 
+            o de otra dependiendo de la elección del usuario*/
+            //<editor-fold defaultstate="collapsed" desc="Notificaciones DS">
             notificacionesDS notificacion=new notificacionesDS();
             notificacion.notificacionFalloTiempo("Error de conexión", "No se ha podido conectar a internet, por favor"
                     + " verifique su conexión a intenet",10000L);
+            //</editor-fold>
         }else{//Si si hay conexión a internet
             
         }
