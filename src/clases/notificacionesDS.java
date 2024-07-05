@@ -68,4 +68,8 @@ public class notificacionesDS {
         DesktopNotify.showDesktopMessage(titulo, mensaje, DesktopNotify.HELP, tiempo);
     }
     //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Notificaciones de uso general">
+    //aqui se pondrán las notificaciones que solo muestran texto con o sin icono personalizado
+    //</editor-fold>
 }
