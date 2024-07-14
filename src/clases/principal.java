@@ -17,6 +17,12 @@ import java.net.Socket;
 import java.net.SocketAddress;
 //</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="Librerías para archivos de propiedades">
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.IOException;
+//</editor-fold
+
 /**
  *
  * @author Emmanuelito18
