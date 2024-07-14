@@ -26,8 +26,17 @@ import javax.swing.SwingUtilities;
 import propiedades.idioma;//Hace las traducciones del programa
 
 /**
- *
+ *Asistencia aleatoria, un programa que sirve para decidir de forma aleatoria
+ * que alumnos tienen que ir o no a clase, este programa surgio en base a una 
+ * necesidad durante el final de la pandemia de COVID-19 en ESIME CULHUACÁN
  * @author Emmanuelito18
+ * @version 0.1 pre-alpha
+ * @see <a href="https://sl.bing.net/boyOgJOk5lI" target="_blank">Etiquetas Javadoc en Java (Bing Copilot)</a> :leer para información más detallada sobre documentación 
+ * en javadoc.
+ * @see <a href="https://youtu.be/1n28VRCzJho%3Fsi%3DXsS8mPbWsenczusr" target="_blank">DOCUMENTAR MÉTODOS en Java con JAVADOC (youtube)</a> :ver video para mas información sobre como
+ * hacer documentación correctamente.
+ * @see <a href="https://youtu.be/GDX0oa0voec%3Fsi%3D3EZT8vdPo2Pnn3tS" target="_blank">Programación Java. Documenta tu código como un profesional con Javadoc (youtube)</a> :ver video para saber cómo
+ * hacer documentación.
  */
 public class inicioSesion extends javax.swing.JFrame {
 
@@ -228,7 +237,7 @@ public class inicioSesion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta");
     }
     }//GEN-LAST:event_btn_iniciarActionPerformed
-
+    
     private void btn_recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperarActionPerformed
         // TODO add your handling code here:
         recuperarCuenta r=new recuperarCuenta();
@@ -299,31 +308,6 @@ public class inicioSesion extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-        
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(inicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(inicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(inicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(inicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel del usuario">
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -389,8 +373,8 @@ public class inicioSesion extends javax.swing.JFrame {
                                 Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
-                    }
-                }//</editor-fold>              
+                    } 
+                }//</editor-fold>             
                 
                 inicioSesion inicio=new inicioSesion();
                 inicio.setVisible(true);
