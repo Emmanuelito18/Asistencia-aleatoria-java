@@ -40,19 +40,6 @@ public class principal {
     Este proyecto aún es trabajo en progreso 
     */
     
-    //<editor-fold defaultstate="collapsed" desc="Verificar conexión internet">
-    public static boolean verificarConexionInternet(){
-        try(Socket socket=new Socket()){
-            int timeout=2000;//tiempo de espera en milisegundos
-            SocketAddress socketAddress=new InetSocketAddress("www.google.com",80);
-            socket.connect(socketAddress,timeout);
-            return true;
-        }catch(IOException e){
-            return false;
-        }
-    }
-    //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="manejo de archivos de propiedades">
     /*
         este espacio se utilizará para menejar los temas del programa
