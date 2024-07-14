@@ -51,6 +51,14 @@ public class principal {
     }
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="manejo de archivos de propiedades">
+    /*
+        este espacio se utilizará para menejar los temas del programa
+        temas de notificaciones e idiomas del programa
+    */
+    
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
     public static void main(String[] args){
         if(verificarConexionInternet()){//Si no hay conexión a internet
