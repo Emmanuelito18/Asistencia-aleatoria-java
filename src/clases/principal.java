@@ -69,7 +69,8 @@ public class principal {
     
     //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
     public static void main(String[] args){
-        if(verificarConexionInternet()){//Si no hay conexión a internet
+        verificaConexionInternet verificarInternet=new verificaConexionInternet();//se crea un objeto de la clase verificaConexionInternet
+        if(!verificaConexionInternet.verificarConexionGoogle()){//Si no hay conexión a internet
             /*anadir código para que muestre la notificación un tipo de notificación 
             o de otra dependiendo de la elección del usuario*/
             //<editor-fold defaultstate="collapsed" desc="Notificaciones DS">
