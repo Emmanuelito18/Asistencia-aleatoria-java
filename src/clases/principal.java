@@ -40,12 +40,6 @@ public class principal {
     Este proyecto aún es trabajo en progreso 
     */
     
-    /**
-     * Esta es el método principal del programa donde se 
-     * invocan y realizan todos los procesos relevantes para el programa
-     * @param args 
-     */
-    
     //<editor-fold defaultstate="collapsed" desc="Verificar conexión internet">
     public static boolean verificarConexionInternet(){
         try(Socket socket=new Socket()){
@@ -68,6 +62,11 @@ public class principal {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Función principal de programa">
+    /**
+     * Esta es el método principal del programa donde se 
+     * invocan y realizan todos los procesos relevantes para el programa
+     * @param args 
+     */
     public static void main(String[] args){
         verificaConexionInternet verificarInternet=new verificaConexionInternet();//se crea un objeto de la clase verificaConexionInternet
         if(!verificaConexionInternet.verificarConexionGoogle()){//Si no hay conexión a internet
