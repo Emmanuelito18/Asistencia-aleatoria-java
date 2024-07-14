@@ -27,16 +27,6 @@ import java.io.IOException;
  * @author Emmanuelito18
  */
 public class principal {
-    //<editor-fold defaultstate="collapsed" desc="Notificaciones DS">
-    public static void notificacionDSErrorConexion(){
-        DesktopNotify.showDesktopMessage("Error de conexión","No se ha podido conectar a internet, por favor verifique su conexión a internet",DesktopNotify.ERROR,10000L);
-    }
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Notificaciones Java">
-    
-    //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Verificar conexión internet">
     public static boolean verificarConexionInternet(){
         try(Socket socket=new Socket()){
