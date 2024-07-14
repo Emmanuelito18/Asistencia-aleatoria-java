@@ -45,11 +45,7 @@ public class principal {
      * invocan y realizan todos los procesos relevantes para el programa
      * @param args 
      */
-    public static void main(String[] args){
-        inicioSesion inicio=new inicioSesion();
-        inicio.setVisible(true);
-        inicio.setLocationRelativeTo(null);
-        inicio.setResizable(false);
+    
     //<editor-fold defaultstate="collapsed" desc="Verificar conexión internet">
     public static boolean verificarConexionInternet(){
         try(Socket socket=new Socket()){
