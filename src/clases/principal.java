@@ -32,7 +32,7 @@ public class principal {
     
     //</editor-fold>
     
-    //<editor-fold defaultstate="collapsed" desc="Verificar notificacion">
+    //<editor-fold defaultstate="collapsed" desc="Verificar conexión internet">
     public static boolean verificarConexionInternet(){
         try(Socket socket=new Socket()){
             int timeout=2000;//tiempo de espera en milisegundos
