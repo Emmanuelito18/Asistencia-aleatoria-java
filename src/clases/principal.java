@@ -51,10 +51,14 @@ public class principal {
             notificacionesDS notificacion=new notificacionesDS();
             notificacion.notificacionFalloTiempo("Error de conexión", "No se ha podido conectar a internet, por favor"
                     + " verifique su conexión a intenet",10000L);
+            //hacer que cada que se invoque una notificación se esuche un sonido
             //</editor-fold>
         }else{//Si si hay conexión a internet
             
         }
+        //reparar el Slpash screen para que funcione correctamente
+        //Refactorizar codigo duplicado de clases antiguas
+        
     }
     //</editor-fold>
 }
