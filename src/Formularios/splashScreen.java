@@ -98,15 +98,17 @@ public class splashScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Controla el progreso de la barra de carga
+     * Controla el progreso de la barra de carga y la carga de las demás clases del programa
      */
     private void barraProgresoIniciado(){
         Timer timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
+           //<editor-fold defaultstate="collapsed" desc="Personalización barra de progreso">
            pb_barraCarga.setValue(pb_barraCarga.getValue()+1);//obtiene el valor que ya tiene y le suma 1
            pb_barraCarga.setBackground(Color.WHITE);//Cambia el color de fondo de la barra de progreso
            pb_barraCarga.setForeground(Color.ORANGE);//Cambia el color de la barra de progreso
            pb_barraCarga.setStringPainted(true);//Habilita el poder mostrar texto en la barra de prograso
            pb_barraCarga.setString("Cargando... "+pb_barraCarga.getValue()+"%");//Establece un texto en la barra de progreso
+           //</editor-fold>
         });
         timer.start();//inicia el timer
     }
