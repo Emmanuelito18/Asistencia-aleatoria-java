@@ -7,6 +7,7 @@ import java.awt.Color;//para crear colores personalizados
 import java.awt.Point;//para obtener coordenadas en el programa
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 //</editor-fold>
 
 /**
@@ -32,6 +33,7 @@ public class splashScreen extends javax.swing.JFrame {
         pnl_Fondo.setBorder(null);
         pnl_Fondo.setBackground(transparente);
         //</editor-fold>
+        barraProgresoIniciado();
     }
 
     /**
@@ -95,6 +97,19 @@ public class splashScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Controla el progreso de la barra de carga
+     */
+    private void barraProgresoIniciado(){
+        Timer timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
+           pb_barraCarga.setValue(pb_barraCarga.getValue()+1);//obtiene el valor que ya tiene y le suma 1
+           pb_barraCarga.setBackground(Color.ORANGE);//Cambia el color de fondo de la barra de progreso
+           pb_barraCarga.setStringPainted(true);//Habilita el poder mostrar texto en la barra de prograso
+           pb_barraCarga.setString("Cargando... "+pb_barraCarga.getValue()+"%");//Establece un texto en la barra de progreso
+        });
+        timer.start();//inicia el timer
+    }
+    
     private void pnl_FondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_FondoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_pnl_FondoMouseClicked
@@ -143,7 +158,8 @@ public class splashScreen extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-        if(!verificaConexionInternet.verificarConexionGoogle()){
+        //Esta clase debe cumplir con cargar el resto de las clases en memoria
+        if(!verificaConexionInternet.verificarConexionGoogle()){//ESto necesita ser eliminado de esta clase
             /*
             1. Solicitar inicio de sesión del usuario
             2. Verificar si la base de datos local está vacia
