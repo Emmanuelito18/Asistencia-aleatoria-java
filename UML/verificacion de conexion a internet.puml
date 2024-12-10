@@ -1,0 +1,41 @@
+@startuml
+start
+if(hay conexión a internet) then (si)
+    :Iniciar sesion|
+    if (Base de datos local vacia) then (si)
+        :Conectar base de datos MySQL|
+        :llenar base de datos local]
+        :utlimaConexion=0]
+        :cerrar conexion base de datos MySQl]
+        if(ultimaConexion>=7) then (si)
+            :Conectar base de datos MySQL|
+            :llenar base de datos local]
+            :utlimaConexion=0]
+            :cerrar conexion base de datos MySQL]
+        else (no)
+        endif
+    else (no)
+       :Iniciar programa]
+       :conectar a la base de datos local]
+       :Comprobar fecha|
+    endif
+else (no)
+    :No hay conexion a internet;
+    :Iniciar sesion|
+    if(base de datos local vacia) then(si)
+        :Por favor revise la conexion a inernet;
+    else (no)
+        if(utlimaConexion>=7) then (si)
+            :por favor verifique su conexión a internet para actualizar la base de datos;
+            :Iniciar programa]
+            :conectar a la base de datos local]
+            :ultimaConexion=0]
+        else (no)
+            :Iniciar programa]
+            :conectar a la base de datos local]
+            :verificar fecha|
+        endif
+    endif
+endif
+stop
+@enduml
