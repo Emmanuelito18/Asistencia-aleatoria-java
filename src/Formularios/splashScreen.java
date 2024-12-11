@@ -1,6 +1,9 @@
 package Formularios;
 
 //<editor-fold defaultstate="collapsed" desc="Librerias necesarias para la splash screen">
+import clases.conectarBase;
+import clases.notificacionesDS;
+import clases.notificacionesJava;
 import clases.poneImagenes;
 import clases.verificaConexionInternet;
 import java.awt.Color;//para crear colores personalizados
@@ -17,6 +20,22 @@ import javax.swing.Timer;
 public class splashScreen extends javax.swing.JFrame {
     private Color transparente;//Crea un color llamado transparente
     private Point punto;//se utliza para obtener el punto en que se está haciendo click y en donde está el mouse
+    
+    //<editor-fold defaultstate="collapsed" desc="referencias de clases a cargar">
+    private poneImagenes ponerImagenes;
+    private notificacionesDS notificacionDS;
+    private notificacionesJava notificacionJava;
+    private inicioSesion iniciarSesion;
+    private menu menuPrincipal;
+    private crearGrupo creaGrupo;
+    private editarGrupo editaGrupo;
+    private generarGrupo generaGrupo;
+    private mostrarGrupo muestraGrupo;
+    private recuperarCuenta recuperaCuenta;
+    private registrarCuenta registraCuenta;
+    private verificaConexionInternet verificaConexion;
+    private conectarBase conectaBaseDatos;
+    //</editor-fold>
     /**
      * Creates new form splashScreen
      */
@@ -99,6 +118,8 @@ public class splashScreen extends javax.swing.JFrame {
 
     /**
      * Controla el progreso de la barra de carga y la carga de las demás clases del programa
+     * @see <a href="https://youtu.be/Pq7fafeaQkw?si=CADfse2amhITfMrT" target="_blank"> Como hacer un progres barr que duncione correctamente</a> ver video para entender la forma en la que carga las clases
+     * @see <a href="https://youtu.be/wIFvklD-dAc?si=qI7-fG3Ap-h5pD_P" target="_blank"> Como hacer un slpash screen en java</a> ver video para saber como funciona el slpash screen
      */
     private void barraProgresoIniciado(){
         Timer timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
@@ -109,9 +130,174 @@ public class splashScreen extends javax.swing.JFrame {
            pb_barraCarga.setStringPainted(true);//Habilita el poder mostrar texto en la barra de prograso
            pb_barraCarga.setString("Cargando... "+pb_barraCarga.getValue()+"%");//Establece un texto en la barra de progreso
            //</editor-fold>
+ 
+           //<editor-fold defaultstate="collapsed" desc="Carga en memoria las clases del programa">
+            switch (pb_barraCarga.getValue()) {
+                case 7:
+                    ponerImagenes=new poneImagenes();
+                    System.out.println("Se cargó la clase para poner imagenes");
+                    break;
+                case 14:
+                    notificacionDS=new notificacionesDS();
+                    System.out.println("Se cargaron las notificaciones DS");
+                    break;
+                case 21:
+                    notificacionJava=new notificacionesJava();
+                    System.out.println("Se cargaron las notificaciones java");
+                    break;
+                case 28:
+                    iniciarSesion=new inicioSesion();
+                    System.out.println("Se cargó el inicio de seción");
+                    break;
+                case 35:
+                    menuPrincipal=new menu();
+                    System.out.println("Se cargó el menú principal");
+                    break;
+                case 42:
+                    creaGrupo=new crearGrupo();
+                    System.out.println("Se cargó la creación de grupos");
+                    break;
+                case 49:
+                    editaGrupo=new editarGrupo();
+                    System.out.println("Se cargó la edición de grupos");
+                    break;
+                case 56:
+                    generaGrupo=new generarGrupo();
+                    System.out.println("Se cargó la generación de grupo");
+                    break;
+                case 63:
+                    muestraGrupo=new mostrarGrupo();
+                    System.out.println("Se cargó la muestra de grupos");
+                    break;
+                case 70:
+                    recuperaCuenta=new recuperarCuenta();
+                    System.out.println("Se cargó la recuperación de cuenta");
+                    break;
+                case 77:
+                    registraCuenta=new registrarCuenta();
+                    System.out.println("Se cargó el registro de cuenta");
+                    break;
+                case 84:
+                    verificaConexion=new verificaConexionInternet();
+                    System.out.println("Se cargó la verificación de conexion a internet");
+                    break;
+                case 91:
+                    conectaBaseDatos=new conectarBase();
+                    System.out.println("Se cargó la conexion a la base de datos");
+                    break;
+                case 100:
+                    dispose();//solo cierra la interfaz gráfica de splashScreen pero el programa se sigue ejecutando
+            }
+           //</editor-fold>
         });
         timer.start();//inicia el timer
     }
+    
+    //<editor-fold defaultstate="collapsed" desc="Métodos para obtener las referencias a las clases cargadas en memoria">    
+    /**
+     * Este método obtiene la referencia de la clase {@code PoneImagenes}
+     * @return La referencia a la clase {@code poneImagenes}
+     */
+    public poneImagenes getPoneImagenes(){
+        return ponerImagenes;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code notificacionesDS}
+     * @return La referencia a la clase {@code notificacionesDS}
+     */
+    public notificacionesDS getNotificacionesDS(){
+        return notificacionDS;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code notificacionesJava}
+     * @return La referencia a la clase {@code notificacionesJava}
+     */
+    public notificacionesJava getNotificacionesJava(){
+        return notificacionJava;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code inicioSesion}
+     * @return La referencia a la clase {@code inicioSesion}
+     */
+    public inicioSesion getInicioSesion(){
+        return iniciarSesion;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code menu}
+     * @return La referencia a la clase {@code menu}
+     */
+    public menu getMenu(){
+        return menuPrincipal;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code crearGrupo}
+     * @return La referencia a la clase {@code crearGrupo}
+     */
+    public crearGrupo getCrearGrupo(){
+        return creaGrupo;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code editarGrupo}
+     * @return La referencia a la clase {@code editarGrupo}
+     */
+    public editarGrupo getEditarGrupo(){
+        return editaGrupo;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code generarGrupo}
+     * @return La referencia a la clase {@code generarGrupo}
+     */
+    public generarGrupo getGenerarGrupo(){
+        return generaGrupo;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code mostrarGrupo}
+     * @return La referencia a la clase {@code mostrarGrupo}
+     */
+    public mostrarGrupo getMostrarGrupo(){
+        return muestraGrupo;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code recuperarCuenta}
+     * @return La referencia a la clase {@code recuperarCuenta}
+     */
+    public recuperarCuenta getRecuperarCuenta(){
+        return recuperaCuenta;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code registrarcuenta}
+     * @return La referencia a la clase {@code registrarCuenta}
+     */
+    public registrarCuenta getRegistrarCuenta(){
+        return registraCuenta;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code verificaConexionInternet}
+     * @return La referencia a la clase {@code verificaConexionInternet}
+     */
+    public verificaConexionInternet getVerificaConexionInternet(){
+        return verificaConexion;
+    }
+    
+    /**
+     * Este método obtiene la referencia de la clase {@code conectarBase}
+     * @return La referencia a la clase {@code conectarBase}
+     */
+    public conectarBase getConectarBase(){
+        return conectaBaseDatos;
+    }
+    //</editor-fold>
     
     private void pnl_FondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_FondoMouseClicked
         // TODO add your handling code here:
