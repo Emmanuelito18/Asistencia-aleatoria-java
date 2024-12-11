@@ -1,13 +1,24 @@
 package clases;
 
-//<editor-fold defaultstate="collapsed" desc="Libreria notificaciones DS">
-import ds.desktop.notify.DesktopNotify;
+//<editor-fold defaultstate="collapsed" desc="Importación de otras clases del programa">
+import Formularios.crearGrupo;
+import Formularios.editarGrupo;
+import Formularios.generarGrupo;
+import Formularios.inicioSesion;
+import Formularios.menu;
+import Formularios.mostrarGrupo;
+import Formularios.recuperarCuenta;
+import Formularios.registrarCuenta;
+import Formularios.splashScreen;
+import ds.desktop.notify.DesktopNotify;//Esta clase se va a eliminar
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="Librerías para archivos de propiedades">
 import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //</editor-fold>
 
 /**
@@ -56,8 +67,32 @@ public class principal {
         }else{//Si si hay conexión a internet
             
         }
-        //reparar el Slpash screen para que funcione correctamente
-        //Refactorizar codigo duplicado de clases antiguas
+        
+        splashScreen pantallaCarga=new splashScreen();
+        pantallaCarga.setVisible(true);
+        
+        pantallaCarga.setCargaCompletaListener(()->{
+            pantallaCarga.dispose();//solo cierra la interfaz gráfica de splashScreen pero el programa se sigue ejecutando
+            //<editor-fold defaultstate="collapsed" desc="Inicialización de clases con referencias obtenidas del splashScreen">
+            poneImagenes ponerImagenes=pantallaCarga.getPoneImagenes();
+            notificacionesDS notificacionDS=pantallaCarga.getNotificacionesDS();
+            notificacionesJava notificacionJava=pantallaCarga.getNotificacionesJava();
+            inicioSesion iniciarSesion=pantallaCarga.getInicioSesion();
+            menu menuPrincipal=pantallaCarga.getMenu();
+            crearGrupo creaGrupo=pantallaCarga.getCrearGrupo();
+            editarGrupo editaGrupo=pantallaCarga.getEditarGrupo();
+            generarGrupo generaGrupo=pantallaCarga.getGenerarGrupo();
+            mostrarGrupo muestraGrupo=pantallaCarga.getMostrarGrupo();
+            recuperarCuenta recuperaCuenta=pantallaCarga.getRecuperarCuenta();
+            registrarCuenta registraCuenta=pantallaCarga.getRegistrarCuenta();
+            verificaConexionInternet verificaConexion=pantallaCarga.getVerificaConexionInternet();
+            conectarBase conectaBaseDatos=pantallaCarga.getConectarBase();
+            //</editor-fold>
+            iniciarSesion.setVisible(true);
+        });
+        /*Crear clases o métodos extra para la carga de archivos .properties para traducción del programa
+        y cambio de tema y configuración del programa
+        Refactorizar codigo duplicado de clases antiguas*/
         
     }
     //</editor-fold>

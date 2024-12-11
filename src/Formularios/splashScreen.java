@@ -20,6 +20,7 @@ import javax.swing.Timer;
 public class splashScreen extends javax.swing.JFrame {
     private Color transparente;//Crea un color llamado transparente
     private Point punto;//se utliza para obtener el punto en que se está haciendo click y en donde está el mouse
+    private Timer timer;//Se utiliza para que la barra de progreso aumente el procentaje
     
     //<editor-fold defaultstate="collapsed" desc="referencias de clases a cargar">
     private poneImagenes ponerImagenes;
@@ -122,7 +123,7 @@ public class splashScreen extends javax.swing.JFrame {
      * @see <a href="https://youtu.be/wIFvklD-dAc?si=qI7-fG3Ap-h5pD_P" target="_blank"> Como hacer un slpash screen en java</a> ver video para saber como funciona el slpash screen
      */
     private void barraProgresoIniciado(){
-        Timer timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
+        timer=new Timer(50, (ActionEvent e) -> {//funcion lambda para el timer
            //<editor-fold defaultstate="collapsed" desc="Personalización barra de progreso">
            pb_barraCarga.setValue(pb_barraCarga.getValue()+1);//obtiene el valor que ya tiene y le suma 1
            pb_barraCarga.setBackground(Color.WHITE);//Cambia el color de fondo de la barra de progreso
@@ -135,7 +136,7 @@ public class splashScreen extends javax.swing.JFrame {
             switch (pb_barraCarga.getValue()) {
                 case 7:
                     ponerImagenes=new poneImagenes();
-                    System.out.println("Se cargó la clase para poner imagenes");
+                    System.out.println("Se cargo la clase para poner imagenes");
                     break;
                 case 14:
                     notificacionDS=new notificacionesDS();
@@ -147,50 +148,54 @@ public class splashScreen extends javax.swing.JFrame {
                     break;
                 case 28:
                     iniciarSesion=new inicioSesion();
-                    System.out.println("Se cargó el inicio de seción");
+                    System.out.println("Se cargo el inicio de seción");
                     break;
                 case 35:
                     menuPrincipal=new menu();
-                    System.out.println("Se cargó el menú principal");
+                    System.out.println("Se cargo el menú principal");
                     break;
                 case 42:
                     creaGrupo=new crearGrupo();
-                    System.out.println("Se cargó la creación de grupos");
+                    System.out.println("Se cargo la creación de grupos");
                     break;
                 case 49:
                     editaGrupo=new editarGrupo();
-                    System.out.println("Se cargó la edición de grupos");
+                    System.out.println("Se cargo la edición de grupos");
                     break;
                 case 56:
                     generaGrupo=new generarGrupo();
-                    System.out.println("Se cargó la generación de grupo");
+                    System.out.println("Se cargo la generación de grupo");
                     break;
                 case 63:
                     muestraGrupo=new mostrarGrupo();
-                    System.out.println("Se cargó la muestra de grupos");
+                    System.out.println("Se cargo la muestra de grupos");
                     break;
                 case 70:
                     recuperaCuenta=new recuperarCuenta();
-                    System.out.println("Se cargó la recuperación de cuenta");
+                    System.out.println("Se cargo la recuperación de cuenta");
                     break;
                 case 77:
                     registraCuenta=new registrarCuenta();
-                    System.out.println("Se cargó el registro de cuenta");
+                    System.out.println("Se cargo el registro de cuenta");
                     break;
                 case 84:
                     verificaConexion=new verificaConexionInternet();
-                    System.out.println("Se cargó la verificación de conexion a internet");
+                    System.out.println("Se cargo la verificacion de conexion a internet");
                     break;
                 case 91:
                     conectaBaseDatos=new conectarBase();
-                    System.out.println("Se cargó la conexion a la base de datos");
+                    System.out.println("Se cargo la conexion a la base de datos");
                     break;
                 case 100:
-                    dispose();//solo cierra la interfaz gráfica de splashScreen pero el programa se sigue ejecutando
+                    System.out.println("He terminado de cargar todo");
+                    timer.stop();//Detiene el timer
+                    if (listener!=null) {//Notifica al listener que la carga está completa
+                        listener.cargaCompleta();
+                    }
             }
            //</editor-fold>
         });
-        timer.start();//inicia el timer
+        timer.start();//Inicia el timer
     }
     
     //<editor-fold defaultstate="collapsed" desc="Métodos para obtener las referencias a las clases cargadas en memoria">    
@@ -296,6 +301,18 @@ public class splashScreen extends javax.swing.JFrame {
      */
     public conectarBase getConectarBase(){
         return conectaBaseDatos;
+    }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="callback para notificar que se terminó de cargar todas las clases del programa">
+    public interface cargaCompletaListener{
+        void cargaCompleta();
+    }
+    
+    private cargaCompletaListener listener;//listener para el callback que sirve para avisar que termino de cargar todas las clases
+    
+    public void setCargaCompletaListener(cargaCompletaListener listener){
+        this.listener=listener;
     }
     //</editor-fold>
     

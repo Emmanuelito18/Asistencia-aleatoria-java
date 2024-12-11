@@ -30,6 +30,10 @@ public class poneImagenes extends javax.swing.JLabel{
         this.setSize(ancho,alto);//establece el tamaño del objeto PoneImagenes 
     }
     
+    public poneImagenes(){//Constructor generico vacio
+        
+    }
+    
     /**
      * Se utiliza para dibujar la imagen en el componente gráfico
      * @param graphics 
