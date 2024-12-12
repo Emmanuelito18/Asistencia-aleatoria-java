@@ -90,7 +90,7 @@ public class principal {
             //</editor-fold>
             iniciarSesion.setVisible(true);
         });
-        /*El splashScreen.java dunciona correctamente
+        /*El splashScreen.java funciona correctamente, esta versión funcional se sacó de mi pc de escritorio
         Crear clases o métodos extra para la carga de archivos .properties para traducción del programa
         y cambio de tema y configuración del programa
         Refactorizar codigo duplicado de clases antiguas*/

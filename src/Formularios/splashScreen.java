@@ -45,6 +45,9 @@ public class splashScreen extends javax.swing.JFrame {
         transparente=new Color(0,0,0,0);//Establece el color transparente al objeto transparente de la clase Color
         setLocationRelativeTo(null);
         setBackground(transparente);
+        //Se utilizan para indicar que componente se está cargando en ese momento
+        lbl_cargandoComponentes.setVisible(false);
+        lbl_componenteCargado.setVisible(false);
         
         //<editor-fold defaultstate="collapsed" desc="Cambia el fondo del panel pnlFondo">
         poneImagenes fondo=new poneImagenes(pnl_Fondo, "/imagenes/shape2.png");
@@ -68,6 +71,8 @@ public class splashScreen extends javax.swing.JFrame {
         pnl_Fondo = new javax.swing.JPanel();
         lbl_logotipo = new javax.swing.JLabel();
         pb_barraCarga = new javax.swing.JProgressBar();
+        lbl_cargandoComponentes = new javax.swing.JLabel();
+        lbl_componenteCargado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Splash screen");
@@ -89,25 +94,46 @@ public class splashScreen extends javax.swing.JFrame {
         });
 
         lbl_logotipo.setFont(new java.awt.Font("Lucida Calligraphy", 0, 36)); // NOI18N
+        lbl_logotipo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_logotipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_logotipo.setText("Asistencia aleatoria");
+
+        lbl_cargandoComponentes.setFont(new java.awt.Font("Lucida Calligraphy", 1, 12)); // NOI18N
+        lbl_cargandoComponentes.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cargandoComponentes.setText("Cargando componentes...");
+
+        lbl_componenteCargado.setFont(new java.awt.Font("Lucida Calligraphy", 1, 12)); // NOI18N
+        lbl_componenteCargado.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_componenteCargado.setText("componente cargado");
 
         javax.swing.GroupLayout pnl_FondoLayout = new javax.swing.GroupLayout(pnl_Fondo);
         pnl_Fondo.setLayout(pnl_FondoLayout);
         pnl_FondoLayout.setHorizontalGroup(
             pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_logotipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnl_FondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(pnl_FondoLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(pb_barraCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_FondoLayout.createSequentialGroup()
+                        .addComponent(lbl_cargandoComponentes)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_componenteCargado))
+                    .addComponent(pb_barraCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_FondoLayout.setVerticalGroup(
             pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_FondoLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(124, 124, 124)
                 .addComponent(lbl_logotipo)
-                .addGap(104, 104, 104)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_cargandoComponentes)
+                    .addComponent(lbl_componenteCargado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pb_barraCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(119, Short.MAX_VALUE))
         );
@@ -123,6 +149,8 @@ public class splashScreen extends javax.swing.JFrame {
      * @see <a href="https://youtu.be/wIFvklD-dAc?si=qI7-fG3Ap-h5pD_P" target="_blank"> Como hacer un slpash screen en java</a> ver video para saber como funciona el slpash screen
      */
     private void barraProgresoIniciado(){
+        lbl_cargandoComponentes.setVisible(true);
+        lbl_componenteCargado.setVisible(true);
         timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
            //<editor-fold defaultstate="collapsed" desc="Personalización barra de progreso">
            pb_barraCarga.setValue(pb_barraCarga.getValue()+1);//obtiene el valor que ya tiene y le suma 1
@@ -136,58 +164,73 @@ public class splashScreen extends javax.swing.JFrame {
             switch (pb_barraCarga.getValue()) {
                 case 7:
                     ponerImagenes=new poneImagenes();
+                    lbl_componenteCargado.setText("ponerImagenes");
                     System.out.println("Se cargo la clase para poner imagenes");
                     break;
                 case 14:
                     notificacionDS=new notificacionesDS();
+                    lbl_componenteCargado.setText("notificacionesDS");
                     System.out.println("Se cargaron las notificaciones DS");
                     break;
                 case 21:
                     notificacionJava=new notificacionesJava();
+                    lbl_componenteCargado.setText("notificacionesJava");
                     System.out.println("Se cargaron las notificaciones java");
                     break;
                 case 28:
                     iniciarSesion=new inicioSesion();
+                    lbl_componenteCargado.setText("inicioSesion");
                     System.out.println("Se cargo el inicio de seción");
                     break;
                 case 35:
                     menuPrincipal=new menu();
+                    lbl_componenteCargado.setText("menu");
                     System.out.println("Se cargo el menú principal");
                     break;
                 case 42:
                     creaGrupo=new crearGrupo();
+                    lbl_componenteCargado.setText("crearGrupo");
                     System.out.println("Se cargo la creación de grupos");
                     break;
                 case 49:
                     editaGrupo=new editarGrupo();
+                    lbl_componenteCargado.setText("editarGrupo");
                     System.out.println("Se cargo la edición de grupos");
                     break;
                 case 56:
                     generaGrupo=new generarGrupo();
+                    lbl_componenteCargado.setText("generarGrupo");
                     System.out.println("Se cargo la generación de grupo");
                     break;
                 case 63:
                     muestraGrupo=new mostrarGrupo();
+                    lbl_componenteCargado.setText("mostrarGrupo");
                     System.out.println("Se cargo la muestra de grupos");
                     break;
                 case 70:
                     recuperaCuenta=new recuperarCuenta();
+                    lbl_componenteCargado.setText("recuperarCuenta");
                     System.out.println("Se cargo la recuperación de cuenta");
                     break;
                 case 77:
                     registraCuenta=new registrarCuenta();
+                    lbl_componenteCargado.setText("registrarCuenta");
                     System.out.println("Se cargo el registro de cuenta");
                     break;
                 case 84:
                     verificaConexion=new verificaConexionInternet();
+                    lbl_componenteCargado.setText("verificaConexionInternet");
                     System.out.println("Se cargo la verificacion de conexion a internet");
                     break;
                 case 91:
                     conectaBaseDatos=new conectarBase();
+                    lbl_componenteCargado.setText("conectarBase");
                     System.out.println("Se cargo la conexion a la base de datos");
                     break;
                 case 100:
                     System.out.println("He terminado de cargar todo");
+                    lbl_componenteCargado.setVisible(false);
+                    lbl_cargandoComponentes.setVisible(false);
                     timer.stop();//Detiene el timer
                     if (listener!=null) {//Notifica al listener que la carga está completa
                         listener.cargaCompleta();
@@ -392,7 +435,7 @@ public class splashScreen extends javax.swing.JFrame {
             */
             System.out.println("Error de conexión\nNo se ha podido conectar a internet, por favor verifique su conexión a internet");
         }
-        
+        //Código funcional
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -402,6 +445,8 @@ public class splashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbl_cargandoComponentes;
+    private javax.swing.JLabel lbl_componenteCargado;
     private javax.swing.JLabel lbl_logotipo;
     private javax.swing.JProgressBar pb_barraCarga;
     private javax.swing.JPanel pnl_Fondo;
