@@ -123,7 +123,7 @@ public class splashScreen extends javax.swing.JFrame {
      * @see <a href="https://youtu.be/wIFvklD-dAc?si=qI7-fG3Ap-h5pD_P" target="_blank"> Como hacer un slpash screen en java</a> ver video para saber como funciona el slpash screen
      */
     private void barraProgresoIniciado(){
-        timer=new Timer(50, (ActionEvent e) -> {//funcion lambda para el timer
+        timer=new Timer(45, (ActionEvent e) -> {//funcion lambda para el timer
            //<editor-fold defaultstate="collapsed" desc="Personalización barra de progreso">
            pb_barraCarga.setValue(pb_barraCarga.getValue()+1);//obtiene el valor que ya tiene y le suma 1
            pb_barraCarga.setBackground(Color.WHITE);//Cambia el color de fondo de la barra de progreso

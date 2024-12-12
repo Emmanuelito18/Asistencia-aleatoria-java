@@ -90,7 +90,8 @@ public class principal {
             //</editor-fold>
             iniciarSesion.setVisible(true);
         });
-        /*Crear clases o métodos extra para la carga de archivos .properties para traducción del programa
+        /*El splashScreen.java dunciona correctamente
+        Crear clases o métodos extra para la carga de archivos .properties para traducción del programa
         y cambio de tema y configuración del programa
         Refactorizar codigo duplicado de clases antiguas*/
         
